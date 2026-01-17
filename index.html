@@ -14,6 +14,14 @@
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
+
+	<!-- Small inline CSS so the message box auto-grows but can't be resized by hand -->
+	<style>
+		textarea#message {
+			resize: none;
+			overflow-y: hidden;
+		}
+	</style>
 </head>
 
 <body class="is-preload">
@@ -25,7 +33,6 @@
 				<ul>
 					<li><a href="#intro">About Me</a></li>
 					<li><a href="#one">Projects</a></li>
-					<li><a href="#two">What we do</a></li>
 					<li><a href="#three">Get in touch</a></li>
 				</ul>
 			</nav>
@@ -44,64 +51,76 @@
 					interface sensors/actuators and communications, then integrating perception, planning, and
 					control for reliable real-world behavior. I&apos;m especially interested in roles that sit at the
 					intersection of robotics, embedded software, and system integration.</p>
+
 				<h2>Key skills</h2>
 				<ul class="alt">
 					<li><strong>Embedded &amp; Firmware:</strong> C, C++; STM32, ESP32, Raspberry Pi, Jetson; UART, I2C,
 						SPI, CAN, RS485, RS232, MODBUS; Wi-Fi, BLE, LoRa, LTE; Factory Test Automation; PCB Design
 						(Altium, KiCad, Eagle)</li>
-					<li><strong>Robotics &amp; Controls:</strong> Path Planning (A*, D*, RRT/RRT*, Hybrid A*); SLAM; 
+					<li><strong>Robotics &amp; Controls:</strong> Path Planning (A*, D*, RRT/RRT*, Hybrid A*); SLAM;
 						Navigation Stacks; PID, LQR, MPC; Pure Pursuit; System Identification</li>
 					<li><strong>Perception, Estimation &amp; AI:</strong> OpenCV, YOLO, ArUco/AprilTag Tracking; Kalman
 						Filters; Sensor Fusion (IMU, LiDAR, Cameras, Encoders, GPS); VLM, LLM Tooling (Moondream,
 						Gemini, Llama), RAG</li>
 					<li><strong>Tools:</strong> Python, ROS2, Linux (Ubuntu), Git, Docker, PyTorch, Simulink, MATLAB, NumPy</li>
 				</ul>
+
 				<ul class="actions">
 					<li><a href="#one" class="button scrolly">View Projects</a></li>
+
 					<li>
 						<a href="Ronish_Resume_Robotics_2026.pdf"
-							class="button icon solid fa-download"
-							target="_blank"
-							rel="noopener noreferrer">
-							Resume
+						class="button icon solid fa-download"
+						target="_blank"
+						rel="noopener noreferrer">
+						Resume
 						</a>
 					</li>
 
+					<li>
+						<a href="https://github.com/RonishNadar"
+						class="button icon brands fa-github"
+						target="_blank"
+						rel="noopener noreferrer">
+						GitHub
+						</a>
+					</li>
 				</ul>
+
 			</div>
 		</section>
-		<!-- One -->
+
+		<!-- Projects -->
 		<section id="one" class="wrapper style2 spotlights">
+
 			<section>
 				<!-- Project 1 -->
 				<a href="project-1.html" class="image">
 					<div class="project-video">
 						<video autoplay loop muted playsinline>
-						<source src="images/projects/project-1.mp4" type="video/mp4">
+							<source src="images/projects/project-1.mp4" type="video/mp4">
 						</video>
 					</div>
 				</a>
 
-
 				<div class="content">
 					<div class="inner">
-					<h2>Autonomous Multi-Robot Control via LLM/VLM-Driven Embodied AI Frameworks</h2>
+						<h2>Autonomous Multi-Robot Control via LLM/VLM-Driven Embodied AI Frameworks</h2>
+						<p>
+							Built a “zero-code” embodied AI framework where natural language instructions are converted into
+							multi-robot task schedules, using a global vision pipeline (stitching + calibration + ArUco tracking),
+							dynamic obstacle monitoring, and an RRT* + Pure Pursuit/PID control stack bridged through a low-latency RPC server.
+						</p>
 
-					<p>
-						Built a “zero-code” embodied AI framework where natural language instructions are converted into
-						multi-robot task schedules, using a global vision pipeline (stitching + calibration + ArUco tracking),
-						dynamic obstacle monitoring, and an RRT* + Pure Pursuit/PID control stack bridged through a low-latency RPC server.
-					</p>
-
-					<ul class="actions">
-						<li><a href="project-1.html" class="button">Learn More</a></li>
-						<li>
-						<a href="https://github.com/Himhawkins/Mobile-manipulation-with-VLMs"
-							class="button icon brands fa-github"
-							target="_blank"
-							rel="noopener noreferrer">GitHub</a>
-						</li>
-					</ul>
+						<ul class="actions">
+							<li><a href="project-1.html" class="button">Learn More</a></li>
+							<li>
+								<a href="https://github.com/Himhawkins/Mobile-manipulation-with-VLMs"
+									class="button icon brands fa-github"
+									target="_blank"
+									rel="noopener noreferrer">GitHub</a>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</section>
@@ -114,23 +133,22 @@
 
 				<div class="content">
 					<div class="inner">
-					<h2>Dual-Track Ackermann Drive Simulation</h2>
+						<h2>Dual-Track Ackermann Drive Simulation</h2>
+						<p>
+							Built a physics-based 4-wheel Ackermann vehicle simulator with Newton-Euler rigid-body dynamics,
+							a sliding mode controller for robust trajectory tracking, and Hybrid A* + spline-based planning
+							for curvature-aware obstacle avoidance at 100 Hz.
+						</p>
 
-					<p>
-						Built a physics-based 4-wheel Ackermann vehicle simulator with Newton-Euler rigid-body dynamics,
-						a sliding mode controller for robust trajectory tracking, and Hybrid A* + spline-based planning
-						for curvature-aware obstacle avoidance at 100 Hz.
-					</p>
-
-					<ul class="actions">
-						<li><a href="project-2.html" class="button">Learn More</a></li>
-						<li>
-						<a href="https://github.com/RonishNadar/ackermann-drive-simulation"
-							class="button icon brands fa-github"
-							target="_blank"
-							rel="noopener noreferrer">GitHub</a>
-						</li>
-					</ul>
+						<ul class="actions">
+							<li><a href="project-2.html" class="button">Learn More</a></li>
+							<li>
+								<a href="https://github.com/RonishNadar/ackermann-drive-simulation"
+									class="button icon brands fa-github"
+									target="_blank"
+									rel="noopener noreferrer">GitHub</a>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</section>
@@ -138,33 +156,31 @@
 			<section>
 				<!-- Project 3 -->
 				<a href="project-3.html" class="image">
-					<img src="images/projects/project-3.png"
-						alt="110 kV insulator cleaning robot preview" />
+					<img src="images/projects/project-3.png" alt="110 kV insulator cleaning robot preview" />
 				</a>
 
 				<div class="content">
 					<div class="inner">
-					<h2>TATA Power: 110 kV Insulator Cleaning Robot</h2>
+						<h2>TATA Power: 110 kV Insulator Cleaning Robot</h2>
+						<p>
+							Developed a high-voltage-safe robotic system featuring a 4-DoF SCARA manipulator, modular embedded
+							hardware, and vision-based inspection pipelines, reducing routine inspection time by 3× and
+							improving field efficiency by 40%.
+						</p>
 
-					<p>
-						Developed a high-voltage-safe robotic system featuring a 4-DoF SCARA manipulator, modular embedded
-						hardware, and vision-based inspection pipelines, reducing routine inspection time by 3× and
-						improving field efficiency by 40%.
-					</p>
-
-					<ul class="actions">
-						<li><a href="project-3.html" class="button">Learn More</a></li>
-						<li>
-						<a href="https://github.com/RonishNadar/110-kV-Insulator-Maintenance-Robot"
-							class="button icon brands fa-github"
-							target="_blank"
-							rel="noopener noreferrer">GitHub</a>
-						</li>
-					</ul>
+						<ul class="actions">
+							<li><a href="project-3.html" class="button">Learn More</a></li>
+							<li>
+								<a href="https://github.com/RonishNadar/110-kV-Insulator-Maintenance-Robot"
+									class="button icon brands fa-github"
+									target="_blank"
+									rel="noopener noreferrer">GitHub</a>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</section>
-			
+
 			<section>
 				<!-- Project 4 -->
 				<a href="project-4.html" class="image">
@@ -173,108 +189,87 @@
 
 				<div class="content">
 					<div class="inner">
-					<h2>Punch ‘n’ Pop: Rehabilitative Motion-Controlled Game</h2>
+						<h2>Punch ‘n’ Pop: Rehabilitative Motion-Controlled Game</h2>
+						<p>
+							Built an accessibility-first rehab game that fuses OpenCV color tracking with MPU6050 IMU signals to detect
+							multi-quadrant gestures and strike intensity, streaming sensor data over ESP-NOW for low-latency scoring,
+							visualization, and session data sync.
+						</p>
 
-					<p>
-						Built an accessibility-first rehab game that fuses OpenCV color tracking with MPU6050 IMU signals to detect
-						multi-quadrant gestures and strike intensity, streaming sensor data over ESP-NOW for low-latency scoring,
-						visualization, and session data sync.
-					</p>
-
-					<ul class="actions">
-						<li><a href="project-4.html" class="button">Learn More</a></li>
-						<li>
-						<a href="https://github.com/AmrapaliKhandare/punchNPop"
-							class="button icon brands fa-github"
-							target="_blank"
-							rel="noopener noreferrer">GitHub</a>
-						</li>
-					</ul>
+						<ul class="actions">
+							<li><a href="project-4.html" class="button">Learn More</a></li>
+							<li>
+								<a href="https://github.com/AmrapaliKhandare/punchNPop"
+									class="button icon brands fa-github"
+									target="_blank"
+									rel="noopener noreferrer">GitHub</a>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</section>
-		</section>
 
-		<!-- Two -->
-		<section id="two" class="wrapper style3 fade-up">
-			<div class="inner">
-				<h2>What we do</h2>
-				<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat
-					malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet
-					imperdiet est velit quis lorem.</p>
-				<div class="features">
-					<section>
-						<span class="icon solid major fa-code"></span>
-						<h3>Lorem ipsum amet</h3>
-						<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed
-							ultricies erat dapibus.</p>
-					</section>
-					<section>
-						<span class="icon solid major fa-lock"></span>
-						<h3>Aliquam sed nullam</h3>
-						<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed
-							ultricies erat dapibus.</p>
-					</section>
-					<section>
-						<span class="icon solid major fa-cog"></span>
-						<h3>Sed erat ullam corper</h3>
-						<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed
-							ultricies erat dapibus.</p>
-					</section>
-					<section>
-						<span class="icon solid major fa-desktop"></span>
-						<h3>Veroeros quis lorem</h3>
-						<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed
-							ultricies erat dapibus.</p>
-					</section>
-					<section>
-						<span class="icon solid major fa-link"></span>
-						<h3>Urna quis bibendum</h3>
-						<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed
-							ultricies erat dapibus.</p>
-					</section>
-					<section>
-						<span class="icon major fa-gem"></span>
-						<h3>Aliquam urna dapibus</h3>
-						<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed
-							ultricies erat dapibus.</p>
-					</section>
+			<section>
+				<!-- Project 5 -->
+				<a href="project-5.html" class="image">
+					<img src="images/projects/project-5.png" alt="SONAR mapping robot preview" />
+				</a>
+
+				<div class="content">
+					<div class="inner">
+						<h2>Mapping Robot: SONAR Point-Cloud Mapping &amp; ROS Visualization</h2>
+						<p>
+							Built a differential-drive mapping robot with an ESP32 Micro-ROS node streaming data to a ROS2 ground station,
+							fusing IMU + encoder odometry for pose estimation, and generating real-time SONAR point clouds using a 360° scanning module.
+						</p>
+
+						<ul class="actions">
+							<li><a href="project-5.html" class="button">Learn More</a></li>
+							<li>
+								<a href="https://github.com/RonishNadar/sonar-bot"
+									class="button icon brands fa-github"
+									target="_blank"
+									rel="noopener noreferrer">GitHub</a>
+							</li>
+						</ul>
+					</div>
 				</div>
-				<ul class="actions">
-					<li><a href="generic.html" class="button">Learn more</a></li>
-				</ul>
-			</div>
+			</section>
+
 		</section>
 
-		<!-- Three -->
+		<!-- Contact -->
 		<section id="three" class="wrapper style1 fade-up">
 			<div class="inner">
 				<h2>Get in touch</h2>
-				<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat
-					malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet
-					imperdiet est velit quis lorem.</p>
+				<p>If you’d like to collaborate, chat about a role, or ask about any project, send me a message here.</p>
+
 				<div class="split style1">
 					<section>
-						<form method="post" action="#">
+						<form id="contactForm" action="#" method="post">
 							<div class="fields">
 								<div class="field half">
 									<label for="name">Name</label>
-									<input type="text" name="name" id="name" />
+									<input type="text" name="name" id="name" required />
 								</div>
 								<div class="field half">
 									<label for="email">Email</label>
-									<input type="text" name="email" id="email" />
+									<input type="email" name="email" id="email" required />
 								</div>
 								<div class="field">
 									<label for="message">Message</label>
-									<textarea name="message" id="message" rows="5"></textarea>
+									<textarea name="message" id="message" rows="5" required></textarea>
 								</div>
 							</div>
+
 							<ul class="actions">
-								<li><a href="" class="button submit">Send Message</a></li>
+								<li>
+									<button type="button" id="sendMail" class="button submit">Send Message</button>
+								</li>
 							</ul>
 						</form>
 					</section>
+
 					<section>
 						<ul class="contact">
 							<li>
@@ -293,11 +288,8 @@
 							<li>
 								<h3>Social</h3>
 								<ul class="icons">
-									<li><a href="https://github.com/RonishNadar" class="icon brands fa-github"><span
-												class="label">GitHub</span></a></li>
-									<li><a href="https://www.linkedin.com/in/ronish-nadar-56861221a/"
-											class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a>
-									</li>
+									<li><a href="https://github.com/RonishNadar" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+									<li><a href="https://www.linkedin.com/in/ronish-nadar-56861221a/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
 								</ul>
 							</li>
 						</ul>
@@ -326,6 +318,49 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+
+	<script>
+		// Auto-grow textarea (dynamic height) without manual resizing
+		(function () {
+			const ta = document.getElementById('message');
+			if (!ta) return;
+
+			const autoGrow = () => {
+				ta.style.height = 'auto';
+				ta.style.height = ta.scrollHeight + 'px';
+			};
+
+			ta.addEventListener('input', autoGrow);
+			window.addEventListener('load', autoGrow);
+		})();
+
+		// Mailto "Send Message" that fills Name/Email/Message into the user's email client
+		(function () {
+			const btn = document.getElementById('sendMail');
+			if (!btn) return;
+
+			btn.addEventListener('click', function () {
+				const name = (document.getElementById('name')?.value || '').trim();
+				const email = (document.getElementById('email')?.value || '').trim();
+				const message = (document.getElementById('message')?.value || '').trim();
+
+				if (!name || !email || !message) {
+					alert('Please fill in Name, Email, and Message.');
+					return;
+				}
+
+				const to = 'rn2669@nyu.edu';
+				const subject = 'Portfolio Message';
+				const body =
+					`Name: ${name}\n` +
+					`Email: ${email}\n\n` +
+					`Message:\n${message}\n`;
+
+				const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+				window.location.href = mailto;
+			});
+		})();
+	</script>
 
 </body>
 
