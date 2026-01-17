@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<!--
+  Hyperspace by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Project | Zero-Code Multi-Robot Embodied AI</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  </head>
+
+  <body class="is-preload">
+    <!-- Header -->
+    <header id="header">
+      <a href="index.html" class="title">Ronish Nadar</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#one" class="active">Projects</a></li>
+          <li><a href="index.html#three">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <section id="main" class="wrapper">
+        <div class="inner">
+          <h1 class="major">Autonomous Multi-Robot Control via LLM/VLM-Driven Embodied AI Frameworks</h1>
+
+          <p>
+            A “zero-code robotics” system that takes high-level natural language goals and turns them into
+            executable multi-robot behaviors. The framework bridges <strong>LLM reasoning</strong> (task deconstruction and scheduling),
+            <strong>VLM perception</strong> (semantic object understanding), <strong>global vision-based localization</strong>,
+            and <strong>real-time navigation/control</strong> across multiple mobile robots.
+          </p>
+
+          <!-- HERO MEDIA (replace with your real asset) -->
+          <div class="box">
+            <h3>Project Demo</h3>
+            <video controls playsinline style="width: 100%; border-radius: 0.5rem;">
+              <source src="images/projects/project-1-demo.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <hr />
+
+          <h2>Highlights</h2>
+          <ul>
+            <li>
+              <strong>Task Planning &amp; AI:</strong> Built a natural-language “zero-code” interface using an LLM for high-level reasoning and a VLM for semantic understanding (query / detect / point).
+            </li>
+            <li>
+              <strong>Agentic Workflows:</strong> Implemented a pipeline that converts instructions into executable task schedules for multi-robot coordination (e.g., collaborative color sorting and word formation).
+            </li>
+            <li>
+              <strong>Perception &amp; Localization:</strong> Engineered a global top-down vision system with multi-camera stitching, ChArUco calibration, and homography alignment.
+            </li>
+            <li>
+              <strong>Robot Tracking:</strong> Localized sensor-less differential-drive robots via ArUco marker pose estimation in a shared workspace.
+            </li>
+            <li>
+              <strong>Environment Monitoring:</strong> Added dynamic obstacle tracking via background subtraction + blur for collision-aware updates.
+            </li>
+            <li>
+              <strong>Navigation &amp; Planning:</strong> Used RRT* for collision-free paths with online replanning when the scene changes or paths invalidate.
+            </li>
+            <li>
+              <strong>Hybrid Control Stack:</strong> Pure Pursuit for efficient tracking + PID for precise terminal docking and alignment.
+            </li>
+            <li>
+              <strong>Systems Architecture:</strong> Designed a low-latency RPC server (ZMQ + compact serialization) with multi-worker pools to connect Python planners to hardware execution.
+            </li>
+            <li>
+              <strong>Embedded Communication:</strong> Implemented a protocol-agnostic ESP32 wireless stack supporting Wi-Fi, BLE, and ESP-NOW for high-frequency command streaming.
+            </li>
+            <li>
+              <strong>User Interface:</strong> Built a GUI dashboard for live robot state, trajectories, and natural-language interaction.
+            </li>
+          </ul>
+
+          <hr />
+
+          <h2>System Overview</h2>
+          <p>
+            The architecture follows a clear “thinking → acting” pipeline: an LLM interprets intent and generates a task plan,
+            perception/localization provides world state updates, and the navigation/control stack executes motion safely in a dynamic scene.
+          </p>
+
+          <!-- Add PPT images/screenshots here -->
+          <div class="box">
+            <h3>Architecture</h3>
+
+            <div class="row gtr-50">
+              <!-- Top-left -->
+              <div class="col-6 col-12-medium">
+                <span class="image fit">
+                  <img src="images/projects/project-1-hard-arch.png" alt="Hardware architecture diagram" />
+                </span>
+              </div>
+
+              <!-- Top-right -->
+              <div class="col-6 col-12-medium">
+                <span class="image fit">
+                  <img src="images/projects/project-1-soft-arch1.png" alt="Software architecture diagram 1" />
+                </span>
+              </div>
+
+              <!-- Bottom-left -->
+              <div class="col-6 col-12-medium">
+                <span class="image fit">
+                  <img src="images/projects/project-1-soft-arch2.png" alt="Software architecture diagram 2" />
+                </span>
+              </div>
+
+              <!-- Bottom-right -->
+              <div class="col-6 col-12-medium">
+                <span class="image fit">
+                  <img src="images/projects/project-1-soft-arch3.png" alt="Software architecture diagram 3" />
+                </span>
+              </div>
+            </div>
+          </div>
+
+
+
+          <hr />
+
+          <h2>Tech Stack</h2>
+          <div class="features">
+            <section>
+              <span class="icon solid major fa-brain"></span>
+              <h3>LLM/VLM + Agentic Planning</h3>
+              <p>Natural language task deconstruction, tool calling, and scheduling with semantic perception.</p>
+            </section>
+            <section>
+              <span class="icon solid major fa-eye"></span>
+              <h3>Vision + Localization</h3>
+              <p>Multi-camera stitching, calibration, homography alignment, ArUco tracking, dynamic obstacle masks.</p>
+            </section>
+            <section>
+              <span class="icon solid major fa-route"></span>
+              <h3>Planning + Control</h3>
+              <p>RRT* global planning, online replanning, Pure Pursuit tracking, PID for precise docking/alignment.</p>
+            </section>
+            <section>
+              <span class="icon solid major fa-network-wired"></span>
+              <h3>Networking + Embedded</h3>
+              <p>Low-latency RPC bridge, high-frequency command streaming over ESP32 (Wi-Fi / BLE / ESP-NOW).</p>
+            </section>
+          </div>
+
+          <hr />
+
+          <ul class="actions">
+            <li><a href="index.html#one" class="button">Back to Projects</a></li>
+            <li>
+              <a href="https://github.com/Himhawkins/Mobile-manipulation-with-VLMs"
+                 class="button icon brands fa-github"
+                 target="_blank"
+                 rel="noopener noreferrer">GitHub Repo</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="wrapper style1-alt">
+      <div class="inner">
+        <ul class="menu">
+          <li>&copy; Ronish Nadar. All rights reserved.</li>
+          <li>Design: HTML5 UP</li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

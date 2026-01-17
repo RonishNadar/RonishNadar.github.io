@@ -3907,3 +3907,21 @@ input, select, textarea {
 			}
 
 		}
+
+	.image-small {
+		max-width: 70%;
+		margin: 1.5rem auto;
+	}
+
+/* Fixed-size project preview videos */
+	.project-video {
+	width: 438;        /* fixed width */
+	height: 620px;       /* fixed height */
+	overflow: hidden;
+	}
+
+	.project-video video {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;   /* crops instead of stretching */
+	}

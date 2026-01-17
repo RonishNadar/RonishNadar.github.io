@@ -5,207 +5,328 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-	<head>
-		<title>Ronish Nadar | Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
 
-		<!-- Sidebar -->
-			<section id="sidebar">
-				<div class="inner">
-					<nav>
-						<ul>
-							<li><a href="#intro">About Me</a></li>
-							<li><a href="#one">Who we are</a></li>
-							<li><a href="#two">What we do</a></li>
-							<li><a href="#three">Get in touch</a></li>
-						</ul>
-					</nav>
+<head>
+	<title>Ronish Nadar | Portfolio</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Sidebar -->
+	<section id="sidebar">
+		<div class="inner">
+			<nav>
+				<ul>
+					<li><a href="#intro">About Me</a></li>
+					<li><a href="#one">Projects</a></li>
+					<li><a href="#two">What we do</a></li>
+					<li><a href="#three">Get in touch</a></li>
+				</ul>
+			</nav>
+		</div>
+	</section>
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Intro -->
+		<section id="intro" class="wrapper style1 fullscreen fade-up">
+			<div class="inner">
+				<h1>Ronish Nadar</h1>
+				<p><strong>Robotics &amp; Embedded Systems Engineer</strong> pursuing an M.S. in Mechatronics &amp;
+					Robotics at NYU. I build autonomous systems from the ground up writing embedded firmware to
+					interface sensors/actuators and communications, then integrating perception, planning, and
+					control for reliable real-world behavior. I&apos;m especially interested in roles that sit at the
+					intersection of robotics, embedded software, and system integration.</p>
+				<h2>Key skills</h2>
+				<ul class="alt">
+					<li><strong>Embedded &amp; Firmware:</strong> C, C++; STM32, ESP32, Raspberry Pi, Jetson; UART, I2C,
+						SPI, CAN, RS485, RS232, MODBUS; Wi-Fi, BLE, LoRa, LTE; Factory Test Automation; PCB Design
+						(Altium, KiCad, Eagle)</li>
+					<li><strong>Robotics &amp; Controls:</strong> Path Planning (A*, D*, RRT/RRT*, Hybrid A*); SLAM; 
+						Navigation Stacks; PID, LQR, MPC; Pure Pursuit; System Identification</li>
+					<li><strong>Perception, Estimation &amp; AI:</strong> OpenCV, YOLO, ArUco/AprilTag Tracking; Kalman
+						Filters; Sensor Fusion (IMU, LiDAR, Cameras, Encoders, GPS); VLM, LLM Tooling (Moondream,
+						Gemini, Llama), RAG</li>
+					<li><strong>Tools:</strong> Python, ROS2, Linux (Ubuntu), Git, Docker, PyTorch, Simulink, MATLAB, NumPy</li>
+				</ul>
+				<ul class="actions">
+					<li><a href="#one" class="button scrolly">View Projects</a></li>
+					<li>
+						<a href="Ronish_Resume_Robotics_2026.pdf"
+							class="button icon solid fa-download"
+							target="_blank"
+							rel="noopener noreferrer">
+							Resume
+						</a>
+					</li>
+
+				</ul>
+			</div>
+		</section>
+		<!-- One -->
+		<section id="one" class="wrapper style2 spotlights">
+			<section>
+				<!-- Project 1 -->
+				<a href="project-1.html" class="image">
+					<div class="project-video">
+						<video autoplay loop muted playsinline>
+						<source src="images/projects/project-1.mp4" type="video/mp4">
+						</video>
+					</div>
+				</a>
+
+
+				<div class="content">
+					<div class="inner">
+					<h2>Autonomous Multi-Robot Control via LLM/VLM-Driven Embodied AI Frameworks</h2>
+
+					<p>
+						Built a “zero-code” embodied AI framework where natural language instructions are converted into
+						multi-robot task schedules, using a global vision pipeline (stitching + calibration + ArUco tracking),
+						dynamic obstacle monitoring, and an RRT* + Pure Pursuit/PID control stack bridged through a low-latency RPC server.
+					</p>
+
+					<ul class="actions">
+						<li><a href="project-1.html" class="button">Learn More</a></li>
+						<li>
+						<a href="https://github.com/Himhawkins/Mobile-manipulation-with-VLMs"
+							class="button icon brands fa-github"
+							target="_blank"
+							rel="noopener noreferrer">GitHub</a>
+						</li>
+					</ul>
+					</div>
 				</div>
 			</section>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+			<section>
+				<!-- Project 2 -->
+				<a href="project-2.html" class="image">
+					<img src="images/projects/project-2.png" alt="Ackermann drive simulation preview" />
+				</a>
 
-				<!-- Intro -->
-					<section id="intro" class="wrapper style1 fullscreen fade-up">
-						<div class="inner">
-							<h1>Ronish Nadar</h1>
-							<p>Robotics engineer pursuing an M.S. in Mechatronics &amp; Robotics at NYU, with experience building autonomous systems that combine perception, planning, and control. I enjoy taking robots from idea to working end-to-end hardware/software integration.</p>
-							<h2>Key skills</h2>
-							<ul class="alt">
-								<li><strong>Robotics &amp; Controls:</strong> SLAM, path planning (A*, D*, RRT/RRT*), navigation stacks; PID, LQR, MPC; Pure Pursuit; system identification</li>
-								<li><strong>AI &amp; Perception:</strong> OpenCV, YOLO, ArUco/AprilTag tracking; Vision-Language Models (Moondream); LLMs (Gemini, Llama); RAG; Transformers</li>
-								<li><strong>Embedded &amp; Electronics:</strong> STM32, ESP32, Raspberry Pi, NVIDIA Jetson; UART/I2C/SPI/CAN; Wi-Fi/BLE/LoRa; PCB design (Altium, KiCad, Eagle)</li>
-								<li><strong>Tools:</strong> ROS/ROS2, Python/C++, Linux (Ubuntu), Git, Docker, PyTorch, Simulink</li>
-							</ul>
-							<ul class="actions">
-								<li><a href="#one" class="button scrolly">View Projects</a></li>
-								<li><a href="Ronish_Resume_Robotics_2026.pdf" class="button icon solid fa-download">Resume</a></li>
-							</ul>
-						</div>
-					</section>
-				<!-- One -->
-					<section id="one" class="wrapper style2 spotlights">
-						<section>
-							<a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Sed ipsum dolor</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-									<ul class="actions">
-										<li><a href="generic.html" class="button">Learn more</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-						<section>
-							<a href="#" class="image"><img src="images/pic02.jpg" alt="" data-position="top center" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Feugiat consequat</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-									<ul class="actions">
-										<li><a href="generic.html" class="button">Learn more</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-						<section>
-							<a href="#" class="image"><img src="images/pic03.jpg" alt="" data-position="25% 25%" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Ultricies aliquam</h2>
-									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-									<ul class="actions">
-										<li><a href="generic.html" class="button">Learn more</a></li>
-									</ul>
-								</div>
-							</div>
-						</section>
-					</section>
+				<div class="content">
+					<div class="inner">
+					<h2>Dual-Track Ackermann Drive Simulation</h2>
 
-				<!-- Two -->
-					<section id="two" class="wrapper style3 fade-up">
-						<div class="inner">
-							<h2>What we do</h2>
-							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
-							<div class="features">
-								<section>
-									<span class="icon solid major fa-code"></span>
-									<h3>Lorem ipsum amet</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-lock"></span>
-									<h3>Aliquam sed nullam</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-cog"></span>
-									<h3>Sed erat ullam corper</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-desktop"></span>
-									<h3>Veroeros quis lorem</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon solid major fa-link"></span>
-									<h3>Urna quis bibendum</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-								<section>
-									<span class="icon major fa-gem"></span>
-									<h3>Aliquam urna dapibus</h3>
-									<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed ultricies erat dapibus.</p>
-								</section>
-							</div>
-							<ul class="actions">
-								<li><a href="generic.html" class="button">Learn more</a></li>
-							</ul>
-						</div>
-					</section>
+					<p>
+						Built a physics-based 4-wheel Ackermann vehicle simulator with Newton-Euler rigid-body dynamics,
+						a sliding mode controller for robust trajectory tracking, and Hybrid A* + spline-based planning
+						for curvature-aware obstacle avoidance at 100 Hz.
+					</p>
 
-				<!-- Three -->
-					<section id="three" class="wrapper style1 fade-up">
-						<div class="inner">
-							<h2>Get in touch</h2>
-							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
-							<div class="split style1">
-								<section>
-									<form method="post" action="#">
-										<div class="fields">
-											<div class="field half">
-												<label for="name">Name</label>
-												<input type="text" name="name" id="name" />
-											</div>
-											<div class="field half">
-												<label for="email">Email</label>
-												<input type="text" name="email" id="email" />
-											</div>
-											<div class="field">
-												<label for="message">Message</label>
-												<textarea name="message" id="message" rows="5"></textarea>
-											</div>
-										</div>
-										<ul class="actions">
-											<li><a href="" class="button submit">Send Message</a></li>
-										</ul>
-									</form>
-								</section>
-								<section>
-									<ul class="contact">
-										<li>
-											<h3>Address</h3>
-												<span>New York, NY<br />
-												United States</span>
-										</li>
-										<li>
-											<h3>Email</h3>
-											<a href="mailto:rn2669@nyu.edu">rn2669@nyu.edu</a>
-										</li>
-										<li>
-											<h3>Phone</h3>
-											<span>+1 (718) 930-8963</span>
-										</li>
-										<li>
-											<h3>Social</h3>
-												<ul class="icons">
-													<li><a href="https://github.com/RonishNadar" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-													<li><a href="https://www.linkedin.com/in/ronish-nadar-56861221a/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-												</ul>
-										</li>
-									</ul>
-								</section>
-							</div>
-						</div>
-					</section>
-
-			</div>
-
-		<!-- Footer -->
-			<footer id="footer" class="wrapper style1-alt">
-				<div class="inner">
-					<ul class="menu">
-						<li>&copy; Ronish Nadar. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					<ul class="actions">
+						<li><a href="project-2.html" class="button">Learn More</a></li>
+						<li>
+						<a href="https://github.com/RonishNadar/ackermann-drive-simulation"
+							class="button icon brands fa-github"
+							target="_blank"
+							rel="noopener noreferrer">GitHub</a>
+						</li>
 					</ul>
+					</div>
 				</div>
-			</footer>
+			</section>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<section>
+				<!-- Project 3 -->
+				<a href="project-3.html" class="image">
+					<img src="images/projects/project-3.png"
+						alt="110 kV insulator cleaning robot preview" />
+				</a>
 
-	</body>
+				<div class="content">
+					<div class="inner">
+					<h2>TATA Power: 110 kV Insulator Cleaning Robot</h2>
+
+					<p>
+						Developed a high-voltage-safe robotic system featuring a 4-DoF SCARA manipulator, modular embedded
+						hardware, and vision-based inspection pipelines, reducing routine inspection time by 3× and
+						improving field efficiency by 40%.
+					</p>
+
+					<ul class="actions">
+						<li><a href="project-3.html" class="button">Learn More</a></li>
+						<li>
+						<a href="https://github.com/RonishNadar/110-kV-Insulator-Maintenance-Robot"
+							class="button icon brands fa-github"
+							target="_blank"
+							rel="noopener noreferrer">GitHub</a>
+						</li>
+					</ul>
+					</div>
+				</div>
+			</section>
+			
+			<section>
+				<!-- Project 4 -->
+				<a href="project-4.html" class="image">
+					<img src="images/projects/project-4.png" alt="Punch 'n' Pop game preview" />
+				</a>
+
+				<div class="content">
+					<div class="inner">
+					<h2>Punch ‘n’ Pop: Rehabilitative Motion-Controlled Game</h2>
+
+					<p>
+						Built an accessibility-first rehab game that fuses OpenCV color tracking with MPU6050 IMU signals to detect
+						multi-quadrant gestures and strike intensity, streaming sensor data over ESP-NOW for low-latency scoring,
+						visualization, and session data sync.
+					</p>
+
+					<ul class="actions">
+						<li><a href="project-4.html" class="button">Learn More</a></li>
+						<li>
+						<a href="https://github.com/AmrapaliKhandare/punchNPop"
+							class="button icon brands fa-github"
+							target="_blank"
+							rel="noopener noreferrer">GitHub</a>
+						</li>
+					</ul>
+					</div>
+				</div>
+			</section>
+		</section>
+
+		<!-- Two -->
+		<section id="two" class="wrapper style3 fade-up">
+			<div class="inner">
+				<h2>What we do</h2>
+				<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat
+					malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet
+					imperdiet est velit quis lorem.</p>
+				<div class="features">
+					<section>
+						<span class="icon solid major fa-code"></span>
+						<h3>Lorem ipsum amet</h3>
+						<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed
+							ultricies erat dapibus.</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-lock"></span>
+						<h3>Aliquam sed nullam</h3>
+						<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed
+							ultricies erat dapibus.</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-cog"></span>
+						<h3>Sed erat ullam corper</h3>
+						<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed
+							ultricies erat dapibus.</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-desktop"></span>
+						<h3>Veroeros quis lorem</h3>
+						<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed
+							ultricies erat dapibus.</p>
+					</section>
+					<section>
+						<span class="icon solid major fa-link"></span>
+						<h3>Urna quis bibendum</h3>
+						<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed
+							ultricies erat dapibus.</p>
+					</section>
+					<section>
+						<span class="icon major fa-gem"></span>
+						<h3>Aliquam urna dapibus</h3>
+						<p>Phasellus convallis elit id ullam corper amet et pulvinar. Duis aliquam turpis mauris, sed
+							ultricies erat dapibus.</p>
+					</section>
+				</div>
+				<ul class="actions">
+					<li><a href="generic.html" class="button">Learn more</a></li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- Three -->
+		<section id="three" class="wrapper style1 fade-up">
+			<div class="inner">
+				<h2>Get in touch</h2>
+				<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat
+					malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet
+					imperdiet est velit quis lorem.</p>
+				<div class="split style1">
+					<section>
+						<form method="post" action="#">
+							<div class="fields">
+								<div class="field half">
+									<label for="name">Name</label>
+									<input type="text" name="name" id="name" />
+								</div>
+								<div class="field half">
+									<label for="email">Email</label>
+									<input type="text" name="email" id="email" />
+								</div>
+								<div class="field">
+									<label for="message">Message</label>
+									<textarea name="message" id="message" rows="5"></textarea>
+								</div>
+							</div>
+							<ul class="actions">
+								<li><a href="" class="button submit">Send Message</a></li>
+							</ul>
+						</form>
+					</section>
+					<section>
+						<ul class="contact">
+							<li>
+								<h3>Address</h3>
+								<span>New York, NY<br />
+									United States</span>
+							</li>
+							<li>
+								<h3>Email</h3>
+								<a href="mailto:rn2669@nyu.edu">rn2669@nyu.edu</a>
+							</li>
+							<li>
+								<h3>Phone</h3>
+								<span>+1 (718) 930-8963</span>
+							</li>
+							<li>
+								<h3>Social</h3>
+								<ul class="icons">
+									<li><a href="https://github.com/RonishNadar" class="icon brands fa-github"><span
+												class="label">GitHub</span></a></li>
+									<li><a href="https://www.linkedin.com/in/ronish-nadar-56861221a/"
+											class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+				</div>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Footer -->
+	<footer id="footer" class="wrapper style1-alt">
+		<div class="inner">
+			<ul class="menu">
+				<li>&copy; Ronish Nadar. All rights reserved.</li>
+				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrollex.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
 </html>
