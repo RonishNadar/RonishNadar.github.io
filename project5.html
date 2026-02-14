@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Project | Mapping Robot: SONAR Point-Cloud Mapping & ROS Visualization</title>
+  <meta name="description" content="Differential-drive robot generating real-time SONAR point clouds and visualizing them in ROS 2 (RViz) via ESP32 Micro-ROS streaming and fused odometry." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+
+  <style>
+    /* Page-specific helpers (kept minimal) — same as project1.html */
+    .page-title { font-size: 34px; margin: 6px 0 0; line-height: 1.15; }
+    .page-sub { margin-top: 12px; }
+    .media { margin-top: 14px; }
+    .media video { width: 100%; border-radius: 14px; border: 1px solid var(--line); background: rgba(0,0,0,.15); }
+    .divider { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
+
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .two-col-grid img {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      display: block;
+    }
+    @media (max-width: 760px){
+      .two-col-grid{ grid-template-columns: 1fr; }
+      .page-title{ font-size: 28px; }
+    }
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:14px;
+      margin-top: 12px;
+    }
+    @media (max-width: 760px){
+      .feature-grid{ grid-template-columns: 1fr; }
+    }
+    .feature h4{ margin:0 0 8px; font-size:16px; }
+    .feature p{ margin:0; color:var(--muted); line-height:1.6; }
+  </style>
+</head>
+
+<body>
+  <!-- Header (same structure as index.html for seamless feel) -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="./index.html" aria-label="Home">RN</a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="./index.html#about">About</a>
+        <a href="./index.html#experience">Experience</a>
+        <a href="./index.html#projects">Projects</a>
+        <a href="./index.html#certs">Certifications</a>
+        <a href="./index.html#contact">Contact</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--ghost" href="./assets/Ronish_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile nav -->
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <a href="./index.html#about">About</a>
+      <a href="./index.html#experience">Experience</a>
+      <a href="./index.html#projects">Projects</a>
+      <a href="./index.html#certs">Certifications</a>
+      <a href="./index.html#contact">Contact</a>
+      <a class="btn btn--ghost" href="./assets/Ronish_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <p class="kicker">Project</p>
+          <h1 class="page-title">Mapping Robot: SONAR Point-Cloud Mapping &amp; ROS Visualization</h1>
+
+          <p class="muted page-sub">
+            A differential-drive robot that generates real-time SONAR point clouds and visualizes them in ROS 2.
+            The platform streams sensor data from an ESP32 Micro-ROS node over Wi-Fi, estimates pose using fused IMU
+            and wheel encoder odometry, and produces a 360° scan-based point map for spatial awareness.
+          </p>
+
+          <div class="pill-row" style="margin-top:14px;">
+            <span class="pill">ESP32</span>
+            <span class="pill">Micro-ROS</span>
+            <span class="pill">ROS 2</span>
+            <span class="pill">Odometry + Fusion</span>
+            <span class="pill">MPU6050</span>
+            <span class="pill">SONAR</span>
+            <span class="pill">RViz</span>
+          </div>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Demo</h3>
+          <div class="media">
+            <video controls playsinline>
+              <source src="./assets/images/project-5-demo.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Highlights</h3>
+          <ul>
+            <li>
+              <strong>Micro-ROS + ROS 2 streaming:</strong> Built an ESP32 Micro-ROS node streaming sensor topics at
+              20–50 Hz over Wi-Fi to a ROS 2 ground station.
+            </li>
+            <li>
+              <strong>Pose estimation:</strong> Implemented odometry using MPU6050 IMU + magnetic encoders with
+              complementary and Kalman filters for stable heading and position estimates.
+            </li>
+            <li>
+              <strong>360° SONAR scanning:</strong> Designed a rotating SONAR module with ~1° angular resolution
+              to generate real-time point measurements for mapping.
+            </li>
+          </ul>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">System Overview</h3>
+          <p class="muted">
+            The robot publishes encoder ticks and IMU measurements from the ESP32 to a ROS 2 workstation.
+            A fusion layer estimates pose and transforms SONAR range readings into a point cloud in the robot/world frame.
+            RViz visualizes the evolving point map during motion, enabling live debugging and system validation.
+          </p>
+
+          <div class="card" style="margin-top:14px; background: rgba(0,0,0,.10);">
+            <h4 style="margin:0 0 10px;">Architecture</h4>
+            <div class="two-col-grid">
+              <img src="./assets/images/project-5-img1.png" alt="Robot hardware and sensor layout" />
+              <img src="./assets/images/project-5-img2.png" alt="ROS 2 graph / topic pipeline" />
+              <img src="./assets/images/project-5-img3.png" alt="360 degree SONAR scanning module" />
+              <img src="./assets/images/project-5-img4.png" alt="RViz point cloud visualization" />
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Technical Breakdown</h3>
+
+          <h4 style="margin:0 0 8px;">ESP32 Micro-ROS Node</h4>
+          <p class="muted">
+            The embedded stack publishes time-stamped sensor measurements over Wi-Fi at 20–50 Hz.
+            Micro-ROS provides ROS 2-compatible messaging so the robot behaves like a native ROS 2 sensor platform.
+            The approach keeps the robot lightweight while enabling full ROS tooling on the ground station.
+          </p>
+
+          <div style="height:14px;"></div>
+
+          <h4 style="margin:0 0 8px;">Odometry &amp; Sensor Fusion</h4>
+          <p class="muted">
+            Wheel odometry from magnetic encoders provides incremental motion estimates while the MPU6050 contributes
+            orientation dynamics. A complementary filter smooths high-frequency IMU noise, and a Kalman filter improves
+            heading/pose stability under drift and wheel slip.
+          </p>
+
+          <div style="height:14px;"></div>
+
+          <h4 style="margin:0 0 8px;">SONAR Point-Cloud Generation</h4>
+          <p class="muted">
+            A rotating SONAR produces 360° scans with ~1° angular resolution. Each range measurement is converted into
+            (x, y) points in the robot frame and transformed into the world frame using the estimated pose. The resulting
+            point set is published for visualization and can be extended into occupancy grids or SLAM-style mapping.
+          </p>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Key Takeaways</h3>
+          <ul>
+            <li>Demonstrates embedded-to-ROS 2 integration with real-time constraints</li>
+            <li>Shows practical odometry and filtering for pose estimation</li>
+            <li>Builds a complete perception-to-visualization mapping pipeline (SONAR → point cloud → RViz)</li>
+            <li>Extensible foundation for occupancy mapping and SLAM</li>
+          </ul>
+
+          <hr class="divider" />
+
+          <div class="hero__cta" style="margin-top:0;">
+            <a class="btn btn--ghost" href="./index.html#projects">Back to Projects</a>
+            <a class="btn" href="https://github.com/RonishNadar/sonar-bot" target="_blank" rel="noopener">GitHub Repo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="muted">© <span id="year"></span> Ronish Nadar. Built with GitHub Pages.</p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

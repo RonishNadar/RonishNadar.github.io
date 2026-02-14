@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Project | Zero-Code Multi-Robot Embodied AI</title>
+  <meta name="description" content="Autonomous Multi-Robot Control via LLM/VLM-Driven Embodied AI Frameworks." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+
+  <style>
+    /* Page-specific helpers (kept minimal) */
+    .page-title { font-size: 34px; margin: 6px 0 0; line-height: 1.15; }
+    .page-sub { margin-top: 12px; }
+    .media { margin-top: 14px; }
+    .media video { width: 100%; border-radius: 14px; border: 1px solid var(--line); background: rgba(0,0,0,.15); }
+    .divider { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
+
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .two-col-grid img {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      display: block;
+    }
+    @media (max-width: 760px){
+      .two-col-grid{ grid-template-columns: 1fr; }
+      .page-title{ font-size: 28px; }
+    }
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:14px;
+      margin-top: 12px;
+    }
+    @media (max-width: 760px){
+      .feature-grid{ grid-template-columns: 1fr; }
+    }
+    .feature h4{ margin:0 0 8px; font-size:16px; }
+    .feature p{ margin:0; color:var(--muted); line-height:1.6; }
+  </style>
+</head>
+
+<body>
+  <!-- Header (same structure as index.html for seamless feel) -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="./index.html" aria-label="Home">RN</a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="./index.html#about">About</a>
+        <a href="./index.html#experience">Experience</a>
+        <a href="./index.html#projects">Projects</a>
+        <a href="./index.html#certs">Certifications</a>
+        <a href="./index.html#contact">Contact</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--ghost" href="./assets/Ronish_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile nav -->
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <a href="./index.html#about">About</a>
+      <a href="./index.html#experience">Experience</a>
+      <a href="./index.html#projects">Projects</a>
+      <a href="./index.html#certs">Certifications</a>
+      <a href="./index.html#contact">Contact</a>
+      <a class="btn btn--ghost" href="./assets/Ronish_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <p class="kicker">Project</p>
+          <h1 class="page-title">Autonomous Multi-Robot Control via LLM/VLM-Driven Embodied AI Frameworks</h1>
+
+          <p class="muted page-sub">
+            A “zero-code robotics” system that takes high-level natural language goals and turns them into
+            executable multi-robot behaviors. The framework bridges <strong>LLM reasoning</strong> (task deconstruction and scheduling),
+            <strong>VLM perception</strong> (semantic object understanding), <strong>global vision-based localization</strong>,
+            and <strong>real-time navigation/control</strong> across multiple mobile robots.
+          </p>
+
+          <div class="pill-row" style="margin-top:14px;">
+            <span class="pill">LLM/VLM</span>
+            <span class="pill">Multi-Robot</span>
+            <span class="pill">Vision Localization</span>
+            <span class="pill">RRT*</span>
+            <span class="pill">Pure Pursuit + PID</span>
+            <span class="pill">ZeroMQ</span>
+            <span class="pill">ESP32</span>
+          </div>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Project Demo</h3>
+          <div class="media">
+            <video controls playsinline>
+              <source src="./assets/images/project-1-demo.mp4" type="video/mp4">
+            </video>
+            <p class="muted" style="margin-top:10px;">
+              Replace <code>assets/images/project-1-demo.mp4</code> with your real demo file (or update the path).
+            </p>
+          </div>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Highlights</h3>
+          <ul>
+            <li><strong>Task Planning &amp; AI:</strong> Built a natural-language “zero-code” interface using an LLM for high-level reasoning and a VLM for semantic understanding (query / detect / point).</li>
+            <li><strong>Agentic Workflows:</strong> Implemented a pipeline that converts instructions into executable task schedules for multi-robot coordination (e.g., collaborative color sorting and word formation).</li>
+            <li><strong>Perception &amp; Localization:</strong> Engineered a global top-down vision system with multi-camera stitching, ChArUco calibration, and homography alignment.</li>
+            <li><strong>Robot Tracking:</strong> Localized sensor-less differential-drive robots via ArUco marker pose estimation in a shared workspace.</li>
+            <li><strong>Environment Monitoring:</strong> Added dynamic obstacle tracking via background subtraction + blur for collision-aware updates.</li>
+            <li><strong>Navigation &amp; Planning:</strong> Used RRT* for collision-free paths with online replanning when the scene changes or paths invalidate.</li>
+            <li><strong>Hybrid Control Stack:</strong> Pure Pursuit for efficient tracking + PID for precise terminal docking and alignment.</li>
+            <li><strong>Systems Architecture:</strong> Designed a low-latency RPC server (ZMQ + compact serialization) with multi-worker pools to connect Python planners to hardware execution.</li>
+            <li><strong>Embedded Communication:</strong> Implemented a protocol-agnostic ESP32 wireless stack supporting Wi-Fi, BLE, and ESP-NOW for high-frequency command streaming.</li>
+            <li><strong>User Interface:</strong> Built a GUI dashboard for live robot state, trajectories, and natural-language interaction.</li>
+          </ul>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">System Overview</h3>
+          <p class="muted">
+            The architecture follows a clear “thinking → acting” pipeline: an LLM interprets intent and generates a task plan,
+            perception/localization provides world state updates, and the navigation/control stack executes motion safely in a dynamic scene.
+          </p>
+
+          <div class="card" style="margin-top:14px; background: rgba(0,0,0,.10);">
+            <h4 style="margin:0 0 10px;">Architecture</h4>
+            <div class="two-col-grid">
+              <img src="./assets/images/project-1-hard-arch.png" alt="Hardware architecture diagram" />
+              <img src="./assets/images/project-1-soft-arch1.png" alt="Software architecture diagram 1" />
+              <img src="./assets/images/project-1-soft-arch2.png" alt="Software architecture diagram 2" />
+              <img src="./assets/images/project-1-soft-arch3.png" alt="Software architecture diagram 3" />
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Tech Stack</h3>
+          <div class="feature-grid">
+            <div class="card feature">
+              <h4>LLM/VLM + Agentic Planning</h4>
+              <p>Natural language task deconstruction, tool calling, and scheduling with semantic perception.</p>
+            </div>
+            <div class="card feature">
+              <h4>Vision + Localization</h4>
+              <p>Multi-camera stitching, calibration, homography alignment, ArUco tracking, dynamic obstacle masks.</p>
+            </div>
+            <div class="card feature">
+              <h4>Planning + Control</h4>
+              <p>RRT* global planning, online replanning, Pure Pursuit tracking, PID for precise docking/alignment.</p>
+            </div>
+            <div class="card feature">
+              <h4>Networking + Embedded</h4>
+              <p>Low-latency RPC bridge, high-frequency command streaming over ESP32 (Wi-Fi / BLE / ESP-NOW).</p>
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <div class="hero__cta" style="margin-top:0;">
+            <a class="btn btn--ghost" href="./index.html#projects">Back to Projects</a>
+            <a class="btn" href="https://github.com/Himhawkins/Mobile-manipulation-with-VLMs" target="_blank" rel="noopener">GitHub Repo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="muted">© <span id="year"></span> Ronish Nadar. Built with GitHub Pages.</p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

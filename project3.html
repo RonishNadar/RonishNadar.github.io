@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Project | 110 kV Insulator Cleaning Robot</title>
+  <meta name="description" content="Industrial field robotics system for safe, automated maintenance of high-voltage transmission infrastructure." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+
+  <style>
+    /* Page-specific helpers (kept minimal) — same as project1.html */
+    .page-title { font-size: 34px; margin: 6px 0 0; line-height: 1.15; }
+    .page-sub { margin-top: 12px; }
+    .media { margin-top: 14px; }
+    .media video { width: 100%; border-radius: 14px; border: 1px solid var(--line); background: rgba(0,0,0,.15); }
+    .divider { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
+
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .two-col-grid img {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      display: block;
+    }
+    @media (max-width: 760px){
+      .two-col-grid{ grid-template-columns: 1fr; }
+      .page-title{ font-size: 28px; }
+    }
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:14px;
+      margin-top: 12px;
+    }
+    @media (max-width: 760px){
+      .feature-grid{ grid-template-columns: 1fr; }
+    }
+    .feature h4{ margin:0 0 8px; font-size:16px; }
+    .feature p{ margin:0; color:var(--muted); line-height:1.6; }
+  </style>
+</head>
+
+<body>
+  <!-- Header (same structure as index.html for seamless feel) -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="./index.html" aria-label="Home">RN</a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="./index.html#about">About</a>
+        <a href="./index.html#experience">Experience</a>
+        <a href="./index.html#projects">Projects</a>
+        <a href="./index.html#certs">Certifications</a>
+        <a href="./index.html#contact">Contact</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--ghost" href="./assets/Ronish_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile nav -->
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <a href="./index.html#about">About</a>
+      <a href="./index.html#experience">Experience</a>
+      <a href="./index.html#projects">Projects</a>
+      <a href="./index.html#certs">Certifications</a>
+      <a href="./index.html#contact">Contact</a>
+      <a class="btn btn--ghost" href="./assets/Ronish_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <p class="kicker">Project</p>
+          <h1 class="page-title">TATA Power: 110 kV Insulator Cleaning Robot</h1>
+
+          <p class="muted page-sub">
+            An industrial field robotics system designed for safe, automated maintenance of high-voltage
+            transmission infrastructure. The robot integrates a custom SCARA manipulator, modular embedded
+            electronics, and vision-based inspection to perform cleaning and diagnostics in 110 kV environments.
+          </p>
+
+          <div class="pill-row" style="margin-top:14px;">
+            <span class="pill">Field Robotics</span>
+            <span class="pill">SCARA Manipulator</span>
+            <span class="pill">Embedded Systems</span>
+            <span class="pill">OpenCV</span>
+            <span class="pill">IR Thermography</span>
+            <span class="pill">Industrial Deployment</span>
+          </div>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Field Deployment / Prototype Demo</h3>
+          <div class="media">
+            <video controls playsinline>
+              <source src="./assets/images/project-3-demo.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Highlights</h3>
+          <ul>
+            <li>
+              <strong>Manipulator Design:</strong> Developed a 4-DoF SCARA robotic arm capable of operating
+              safely in 110 kV environments, with inverse kinematics and motion planning for automated
+              cleaning trajectories.
+            </li>
+            <li>
+              <strong>Embedded Systems:</strong> Architected modular embedded hardware with custom PCBs and
+              distributed firmware coordinated by a Raspberry Pi master controller.
+            </li>
+            <li>
+              <strong>Thermal Inspection:</strong> Integrated IR thermography to detect hotspot anomalies
+              on transmission infrastructure prior to cleaning.
+            </li>
+            <li>
+              <strong>Vision-Based Navigation:</strong> Implemented an OpenCV-based vision pipeline for
+              line-following and alignment along insulator strings.
+            </li>
+            <li>
+              <strong>Field Impact:</strong> Reduced routine inspection time by 3× and improved maintenance
+              efficiency by 40% during field trials.
+            </li>
+          </ul>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">System Overview</h3>
+          <p class="muted">
+            The system combines mechanical manipulation, embedded control, and perception-driven decision
+            making. A central controller coordinates distributed firmware modules, while vision and thermal
+            sensing guide inspection, localization, and cleaning actions in high-risk environments.
+          </p>
+
+          <div class="card" style="margin-top:14px; background: rgba(0,0,0,.10);">
+            <h4 style="margin:0 0 10px;">Connections</h4>
+            <div class="two-col-grid">
+              <img src="./assets/images/project-3-connections-ac.png" alt="AC Connections" />
+              <img src="./assets/images/project-3-connections-dc.png" alt="DC Connections" />
+            </div>
+          </div>
+
+          <div class="card" style="margin-top:14px; background: rgba(0,0,0,.10);">
+            <h4 style="margin:0 0 10px;">Working</h4>
+            <div class="two-col-grid">
+              <img src="./assets/images/project-3-cleaning.png" alt="Vision-based line following and inspection" />
+              <img src="./assets/images/project-3-line.png" alt="Line following and alignment along insulator string" />
+              <img src="./assets/images/project-3-thermal.png" alt="IR thermography hotspot detection" />
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Technical Breakdown</h3>
+
+          <h4 style="margin:0 0 8px;">Manipulator Kinematics &amp; Motion Planning</h4>
+          <p class="muted">
+            The SCARA arm was modeled with forward and inverse kinematics to enable precise end-effector
+            positioning around insulator surfaces. Motion planning routines generated smooth, repeatable
+            cleaning trajectories while respecting joint limits and electrical clearance constraints.
+          </p>
+
+          <div style="height:14px;"></div>
+
+          <h4 style="margin:0 0 8px;">Embedded Architecture</h4>
+          <p class="muted">
+            The robot uses a modular hardware architecture with custom PCBs and distributed microcontroller
+            firmware. A Raspberry Pi master orchestrates sensing, actuation, diagnostics, and logging,
+            improving maintainability and fault isolation during field deployment.
+          </p>
+
+          <div style="height:14px;"></div>
+
+          <h4 style="margin:0 0 8px;">Perception &amp; Inspection</h4>
+          <p class="muted">
+            An IR thermal camera identifies localized heating anomalies indicative of faults, while a
+            camera-based OpenCV pipeline performs line following and alignment along the insulator chain.
+            This combination enables targeted cleaning and inspection without human exposure to high voltage.
+          </p>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Key Takeaways</h3>
+          <ul>
+            <li>Demonstrates real-world field robotics in hazardous environments</li>
+            <li>Combines manipulation, embedded systems, and perception in a single platform</li>
+            <li>Shows measurable operational impact through efficiency and time reductions</li>
+            <li>Bridges academic robotics with industrial deployment constraints</li>
+          </ul>
+
+          <hr class="divider" />
+
+          <div class="hero__cta" style="margin-top:0;">
+            <a class="btn btn--ghost" href="./index.html#projects">Back to Projects</a>
+            <a class="btn" href="https://github.com/RonishNadar/110-kV-Insulator-Maintenance-Robot" target="_blank" rel="noopener">GitHub Repo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="muted">© <span id="year"></span> Ronish Nadar. Built with GitHub Pages.</p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

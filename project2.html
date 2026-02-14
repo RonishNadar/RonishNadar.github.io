@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Project | Dual Track Ackermann Drive Simulation</title>
+  <meta name="description" content="A physics-based simulation of a four-wheel, double-track Ackermann vehicle with planning, smoothing, and robust control." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+
+  <style>
+    /* Page-specific helpers (kept minimal) — same as project1.html */
+    .page-title { font-size: 34px; margin: 6px 0 0; line-height: 1.15; }
+    .page-sub { margin-top: 12px; }
+    .media { margin-top: 14px; }
+    .media video { width: 100%; border-radius: 14px; border: 1px solid var(--line); background: rgba(0,0,0,.15); }
+    .divider { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
+
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .two-col-grid img {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      display: block;
+    }
+    @media (max-width: 760px){
+      .two-col-grid{ grid-template-columns: 1fr; }
+      .page-title{ font-size: 28px; }
+    }
+
+    .feature-grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:14px;
+      margin-top: 12px;
+    }
+    @media (max-width: 760px){
+      .feature-grid{ grid-template-columns: 1fr; }
+    }
+    .feature h4{ margin:0 0 8px; font-size:16px; }
+    .feature p{ margin:0; color:var(--muted); line-height:1.6; }
+  </style>
+</head>
+
+
+<body>
+  <!-- Header (same structure as index.html for seamless feel) -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="./index.html" aria-label="Home">RN</a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="./index.html#about">About</a>
+        <a href="./index.html#experience">Experience</a>
+        <a href="./index.html#projects">Projects</a>
+        <a href="./index.html#certs">Certifications</a>
+        <a href="./index.html#contact">Contact</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--ghost" href="./assets/Ronish_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile nav -->
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <a href="./index.html#about">About</a>
+      <a href="./index.html#experience">Experience</a>
+      <a href="./index.html#projects">Projects</a>
+      <a href="./index.html#certs">Certifications</a>
+      <a href="./index.html#contact">Contact</a>
+      <a class="btn btn--ghost" href="./assets/Ronish_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <p class="kicker">Project</p>
+          <h1 class="page-title">Dual Track Ackermann Drive Simulation</h1>
+
+          <p class="muted page-sub">
+            A physics-based simulation of a four-wheel, double-track Ackermann vehicle that integrates
+            rigid-body dynamics, nonlinear control, and curvature-aware path planning. The system models
+            realistic vehicle behavior and evaluates robust trajectory tracking under dynamic obstacles
+            while maintaining real-time performance.
+          </p>
+
+          <div class="pill-row" style="margin-top:14px;">
+            <span class="pill">Vehicle Dynamics</span>
+            <span class="pill">Ackermann (Double-Track)</span>
+            <span class="pill">Sliding Mode Control</span>
+            <span class="pill">Hybrid A*</span>
+            <span class="pill">B-Splines</span>
+            <span class="pill">Real-Time (100 Hz)</span>
+          </div>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Simulation Demo</h3>
+          <div class="media">
+            <video controls playsinline>
+              <source src="./assets/images/project-2-demo.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Highlights</h3>
+          <ul>
+            <li>
+              <strong>Vehicle Dynamics:</strong> Implemented a four-wheel, double-track Ackermann model using
+              Newton–Euler rigid-body equations with linear tire cornering stiffness for a 12 kg platform.
+            </li>
+            <li>
+              <strong>Sliding Mode Control:</strong> Designed a robust SMC for trajectory tracking with a
+              smoothed tanh-based reaching law to reduce chattering.
+            </li>
+            <li>
+              <strong>Stability Analysis:</strong> Verified closed-loop stability using Lyapunov candidate
+              functions, ensuring convergence of tracking error dynamics.
+            </li>
+            <li>
+              <strong>Planning &amp; Smoothing:</strong> Generated curvature-feasible paths using Hybrid A*
+              and B-spline interpolation for smooth steering and reduced control effort.
+            </li>
+            <li>
+              <strong>Real-Time Performance:</strong> Optimized the control loop to run at 100 Hz while
+              enforcing steering and actuator constraints.
+            </li>
+          </ul>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">System Overview</h3>
+          <p class="muted">
+            The simulator follows a full autonomy pipeline: a planner produces curvature-aware paths,
+            spline interpolation smooths geometric discontinuities, and a nonlinear adaptive controller tracks
+            the reference trajectory under realistic vehicle dynamics and actuator limits.
+          </p>
+
+          <div class="card" style="margin-top:14px; background: rgba(0,0,0,.10);">
+            <h4 style="margin:0 0 10px;">Adaptive Controller</h4>
+            <div class="media" style="margin-top:0;">
+              <video controls playsinline>
+                <source src="./assets/images/project-2-sim.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Technical Breakdown</h3>
+
+          <h4 style="margin:0 0 8px;">Vehicle Dynamics Modeling</h4>
+          <p class="muted">
+            Unlike simplified bicycle models, the simulator uses a double-track formulation that models
+            left and right wheel pairs explicitly. Planar motion is derived from Newton–Euler equations,
+            capturing longitudinal, lateral, and yaw dynamics. Tire forces are generated using linear
+            cornering stiffness, enabling realistic slip-angle behavior while preserving numerical stability.
+          </p>
+
+          <div style="height:14px;"></div>
+
+          <h4 style="margin:0 0 8px;">Sliding Mode Control Design</h4>
+          <p class="muted">
+            A sliding mode controller was developed to handle model uncertainty and disturbances.
+            To mitigate high-frequency chattering, a smooth hyperbolic tangent reaching law replaces
+            the discontinuous sign function. Closed-loop stability is demonstrated via Lyapunov analysis,
+            guaranteeing convergence of tracking errors.
+          </p>
+
+          <div style="height:14px;"></div>
+
+          <h4 style="margin:0 0 8px;">Hybrid A* Planning &amp; Spline Smoothing</h4>
+          <p class="muted">
+            Hybrid A* generates dynamically feasible paths that respect nonholonomic Ackermann constraints
+            and minimum turning radius. B-spline interpolation smooths curvature transitions, improving
+            tracking performance and reducing steering oscillations under high-speed operation.
+          </p>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Key Takeaways</h3>
+          <ul>
+            <li>Demonstrates rigorous vehicle dynamics beyond kinematic bicycle models</li>
+            <li>Applies nonlinear control theory with formal stability guarantees</li>
+            <li>Integrates planning, smoothing, and control in a real-time loop</li>
+            <li>Bridges theory-heavy control design with practical autonomous driving constraints</li>
+          </ul>
+
+          <hr class="divider" />
+
+          <div class="hero__cta" style="margin-top:0;">
+            <a class="btn btn--ghost" href="./index.html#projects">Back to Projects</a>
+            <a class="btn" href="https://github.com/RonishNadar/ackermann-drive-simulation" target="_blank" rel="noopener">GitHub Repo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="muted">© <span id="year"></span> Ronish Nadar. Built with GitHub Pages.</p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>

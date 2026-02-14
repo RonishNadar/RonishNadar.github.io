@@ -1,367 +1,489 @@
-<!DOCTYPE HTML>
-<!--
-	Hyperspace by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-	<title>Ronish Nadar | Portfolio</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<noscript>
-		<link rel="stylesheet" href="assets/css/noscript.css" />
-	</noscript>
-
-	<!-- Small inline CSS so the message box auto-grows but can't be resized by hand -->
-	<style>
-		textarea#message {
-			resize: none;
-			overflow-y: hidden;
-		}
-	</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ronish Nadar | Robotics & Embedded Engineer</title>
+  <meta name="description" content="Robotics & Embedded Engineer — perception, planning, control, and production firmware." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 
-<body class="is-preload">
+<body>
+  <div id="top" class="scroll-anchor"></div>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="#top" aria-label="Home">RN</a>
 
-	<!-- Sidebar -->
-	<section id="sidebar">
-		<div class="inner">
-			<nav>
-				<ul>
-					<li><a href="#intro">About Me</a></li>
-					<li><a href="#one">Projects</a></li>
-					<li><a href="#three">Get in touch</a></li>
-				</ul>
-			</nav>
-		</div>
-	</section>
+      <nav class="nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#certs">Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
-	<!-- Wrapper -->
-	<div id="wrapper">
+      <div class="header__actions">
+        <a class="btn btn--ghost" href="./assets/Ronish_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
 
-		<!-- Intro -->
-		<section id="intro" class="wrapper style1 fullscreen fade-up">
-			<div class="inner">
-				<h1>Ronish Nadar</h1>
-				<p><strong>Robotics &amp; Embedded Systems Engineer</strong> pursuing an M.S. in Mechatronics &amp;
-					Robotics at NYU. I build autonomous systems from the ground up writing embedded firmware to
-					interface sensors/actuators and communications, then integrating perception, planning, and
-					control for reliable real-world behavior. I&apos;m especially interested in roles that sit at the
-					intersection of robotics, embedded software, and system integration.</p>
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#certs">Certifications</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn--ghost" href="./assets/Ronish_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </header>
 
-				<h2>Key skills</h2>
-				<ul class="alt">
-					<li><strong>Embedded &amp; Firmware:</strong> C, C++; STM32, ESP32, Raspberry Pi, Jetson; UART, I2C,
-						SPI, CAN, RS485, RS232, MODBUS; Wi-Fi, BLE, LoRa, LTE; Factory Test Automation; PCB Design
-						(Altium, KiCad, Eagle)</li>
-					<li><strong>Robotics &amp; Controls:</strong> Path Planning (A*, D*, RRT/RRT*, Hybrid A*); SLAM;
-						Navigation Stacks; PID, LQR, MPC; Pure Pursuit; System Identification</li>
-					<li><strong>Perception, Estimation &amp; AI:</strong> OpenCV, YOLO, ArUco/AprilTag Tracking; Kalman
-						Filters; Sensor Fusion (IMU, LiDAR, Cameras, Encoders, GPS); VLM, LLM Tooling (Moondream,
-						Gemini, Llama), RAG</li>
-					<li><strong>Tools:</strong> Python, ROS2, Linux (Ubuntu), Git, Docker, PyTorch, Simulink, MATLAB, NumPy</li>
-				</ul>
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="kicker">Hi, my name is</p>
+          <h1>Ronish Nadar.</h1>
+          <h2>Robotics & Embedded Engineer</h2>
+          <p class="lead">
+            I build autonomous systems end-to-end, perception, planning & control,
+            plus production-grade embedded firmware for real hardware.
+          </p>
 
-				<ul class="actions">
-					<li><a href="#one" class="button scrolly">View Projects</a></li>
+          <div class="hero__cta">
+            <a class="btn" href="#projects">Explore my work</a>
+            <a class="btn btn--ghost" href="#contact">Contact</a>
+          </div>
 
-					<li>
-						<a href="Ronish_Resume_Robotics_2026.pdf"
-						class="button icon solid fa-download"
-						target="_blank"
-						rel="noopener noreferrer">
-						Resume
-						</a>
-					</li>
+          <div class="hero__links">
+            <a href="mailto:rn2669@nyu.edu">rn2669@nyu.edu</a>
+            <span class="dot">•</span>
+            <a href="https://www.linkedin.com/in/ronish-nadar-56861221a/" target="_blank" rel="noopener">LinkedIn</a>
+            <span class="dot">•</span>
+            <a href="https://github.com/RonishNadar" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
 
-					<li>
-						<a href="https://github.com/RonishNadar"
-						class="button icon brands fa-github"
-						target="_blank"
-						rel="noopener noreferrer">
-						GitHub
-						</a>
-					</li>
-				</ul>
+        <div class="hero__card">
+          <div class="profile">
+            <img src="./assets/headshot.png" alt="Ronish Nadar headshot" />
+            <div>
+              <p class="profile__name">Ronish Nadar</p>
+              <p class="profile__meta">New York, NY • MS Mechatronics & Robotics (NYU)</p>
+            </div>
+          </div>
 
-			</div>
-		</section>
+          <div class="pill-row">
+            <span class="pill">ROS 2</span>
+            <span class="pill">C/C++</span>
+            <span class="pill">Python</span>
+            <span class="pill">Computer Vision</span>
+            <span class="pill">Planning/Control</span>
+            <span class="pill">LLM/VLM</span>
+            <span class="pill">Controls Systems</span>
+            <span class="pill">Embedded</span>
+            <span class="pill">PCB Design</span>
+            <span class="pill">CAD</span>
+          </div>
 
-		<!-- Projects -->
-		<section id="one" class="wrapper style2 spotlights">
+          <div class="mini">
+            <div class="mini__item">
+              <p class="mini__label">Currently</p>
+              <p class="mini__value">GRA — Embodied AI & Multi-Robot Autonomy</p>
+            </div>
+            <div class="mini__item">
+              <p class="mini__label">Previously</p>
+              <p class="mini__value">Embedded Systems Engineer — Production IoT (10k+ units)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-			<section>
-				<!-- Project 1 -->
-				<a href="project-1.html" class="image">
-					<div class="project-video">
-						<video autoplay loop muted playsinline>
-							<source src="images/projects/project-1.mp4" type="video/mp4">
-						</video>
-					</div>
-				</a>
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <h3 class="section__title">About</h3>
+        <div class="card">
+          <p>
+            Robotics & Embedded Systems Engineer pursuing an M.S. in Mechatronics & Robotics at NYU. I build autonomous systems end-to-end, from embedded firmware for sensors/actuators and real-time communication to perception, planning, and control that works reliably on real hardware. I’m especially interested in roles at the intersection of robotics, embedded software, and system integration.
+          </p>
+          
+          <h4 class="about__skills-title">Key skills</h4>
 
-				<div class="content">
-					<div class="inner">
-						<h2>Autonomous Multi-Robot Control via LLM/VLM-Driven Embodied AI Frameworks</h2>
-						<p>
-							Built a “zero-code” embodied AI framework where natural language instructions are converted into
-							multi-robot task schedules, using a global vision pipeline (stitching + calibration + ArUco tracking),
-							dynamic obstacle monitoring, and an RRT* + Pure Pursuit/PID control stack bridged through a low-latency RPC server.
-						</p>
+          <div class="about__skills">
+            <div class="about__skill">
+              <span class="about__skill-label">Embedded &amp; Firmware:</span>
+              <span class="about__skill-text">
+                C, C++; STM32, ESP32, Raspberry Pi; UART, I2C, SPI, CAN, RS485; Wi-Fi, BLE, ESP-NOW; Factory Test Automation; PCB Design
+              </span>
+            </div>
 
-						<ul class="actions">
-							<li><a href="project-1.html" class="button">Learn More</a></li>
-							<li>
-								<a href="https://github.com/Himhawkins/Mobile-manipulation-with-VLMs"
-									class="button icon brands fa-github"
-									target="_blank"
-									rel="noopener noreferrer">GitHub</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</section>
+            <div class="about__skill">
+              <span class="about__skill-label">Robotics &amp; Controls:</span>
+              <span class="about__skill-text">
+                Path Planning (A*, D*, RRT/RRT*, Hybrid A*); SLAM; Navigation Stacks; PID, LQR, MPC; Pure Pursuit; System Identification
+              </span>
+            </div>
 
-			<section>
-				<!-- Project 2 -->
-				<a href="project-2.html" class="image">
-					<img src="images/projects/project-2.png" alt="Ackermann drive simulation preview" />
-				</a>
+            <div class="about__skill">
+              <span class="about__skill-label">Perception, Estimation &amp; AI:</span>
+              <span class="about__skill-text">
+                OpenCV; YOLO; ArUco/AprilTag; Kalman Filters; Sensor Fusion (IMU, LiDAR, Cameras, Encoders); VLM/LLM Tooling (Moondream, Gemini); RAG
+              </span>
+            </div>
 
-				<div class="content">
-					<div class="inner">
-						<h2>Dual-Track Ackermann Drive Simulation</h2>
-						<p>
-							Built a physics-based 4-wheel Ackermann vehicle simulator with Newton-Euler rigid-body dynamics,
-							a sliding mode controller for robust trajectory tracking, and Hybrid A* + spline-based planning
-							for curvature-aware obstacle avoidance at 100 Hz.
-						</p>
+            <div class="about__skill">
+              <span class="about__skill-label">Tools:</span>
+              <span class="about__skill-text">
+                ROS 2; Linux (Ubuntu); Git; Docker; Python; NumPy; MATLAB/Simulink
+              </span>
+            </div>
+          </div>
 
-						<ul class="actions">
-							<li><a href="project-2.html" class="button">Learn More</a></li>
-							<li>
-								<a href="https://github.com/RonishNadar/ackermann-drive-simulation"
-									class="button icon brands fa-github"
-									target="_blank"
-									rel="noopener noreferrer">GitHub</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</section>
+        </div>
+      </div>
+    </section>
 
-			<section>
-				<!-- Project 3 -->
-				<a href="project-3.html" class="image">
-					<img src="images/projects/project-3.png" alt="110 kV insulator cleaning robot preview" />
-				</a>
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="container">
+        <h3 class="section__title">Experience</h3>
 
-				<div class="content">
-					<div class="inner">
-						<h2>TATA Power: 110 kV Insulator Cleaning Robot</h2>
-						<p>
-							Developed a high-voltage-safe robotic system featuring a 4-DoF SCARA manipulator, modular embedded
-							hardware, and vision-based inspection pipelines, reducing routine inspection time by 3× and
-							improving field efficiency by 40%.
-						</p>
+        <div class="stack">
+          <article class="xp card">
+            <div class="xp__top">
+              <div class="xp__left">
+                <img class="xp__logo" src="./assets/images/logo-nyu.png" alt="NYU logo" />
+                <div class="xp__meta">
+                  <h4>Graduate Research Assistant — Embodied AI & Multi-Robot Autonomy</h4>
+                  <p class="muted">NYU • Jun 2025 – Present • New York, NY</p>
+                </div>
+              </div>
+              <span class="tag">Research</span>
+            </div>
 
-						<ul class="actions">
-							<li><a href="project-3.html" class="button">Learn More</a></li>
-							<li>
-								<a href="https://github.com/RonishNadar/110-kV-Insulator-Maintenance-Robot"
-									class="button icon brands fa-github"
-									target="_blank"
-									rel="noopener noreferrer">GitHub</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</section>
+            <ul>
+              <li>Architected a “zero-code” embodied-AI framework using Gemini 2.5 Pro and Moondream VLM to convert natural-language prompts into autonomous multi-robot task sequences.</li>
+              <li>Engineered a hybrid navigation stack: RRT* for collision-free planning and a dual-stage Pure Pursuit + PID controller for high-fidelity tracking and precision terminal docking.</li>
+              <li>Built a high-throughput distributed system (ZeroMQ RPC + 4-worker pool) for real-time command streaming to an ESP32 bridge via Wi-Fi, BLE, and ESP-NOW.</li>
+              <li>Designed a centralized perception pipeline using multi-camera homography stitching, ChArUco calibration, and ArUco pose estimation.</li>
+              <li>Validated performance through collaborative experiments (number ordering, word formation, color sorting) with online collision-aware replanning in dynamic environments.</li>
+            </ul>
+          </article>
 
-			<section>
-				<!-- Project 4 -->
-				<a href="project-4.html" class="image">
-					<img src="images/projects/project-4.png" alt="Punch 'n' Pop game preview" />
-				</a>
+          <article class="xp card">
+            <div class="xp__top">
+                <div class="xp__left">
+                <img class="xp__logo" src="./assets/images/logo-nyu.png" alt="NYU logo" />
+                <div class="xp__meta">
+                  <h4>Graduate Teaching Assistant — NYU Tandon, MAE Department</h4>
+                  <p class="muted">NYU • Sep 2025 – Present • New York, NY</p>
+                </div>
+              </div>
+              <span class="tag">Teaching</span>
+            </div>
 
-				<div class="content">
-					<div class="inner">
-						<h2>Punch ‘n’ Pop: Rehabilitative Motion-Controlled Game</h2>
-						<p>
-							Built an accessibility-first rehab game that fuses OpenCV color tracking with MPU6050 IMU signals to detect
-							multi-quadrant gestures and strike intensity, streaming sensor data over ESP-NOW for low-latency scoring,
-							visualization, and session data sync.
-						</p>
+            <!-- Sub-role 1 -->
+            <div class="xp__subrole">
+                <div class="xp__subhead">
+                <p class="xp__subtitle">Automatic Controls Laboratory</p>
+                <p class="xp__dates muted">Jan 2026 – Present</p>
+                </div>
+                <ul>
+                <li>Redesigned the lab curriculum by developing Arduino-based experiments that teach real-time control implementation on microcontrollers.</li>
+                <li>Instructed students on ADC/DAC/PWM, sensors/actuators, system identification, and controller design/implementation (loop-shaping, PID, LQR).</li>
+                </ul>
+            </div>
 
-						<ul class="actions">
-							<li><a href="project-4.html" class="button">Learn More</a></li>
-							<li>
-								<a href="https://github.com/AmrapaliKhandare/punchNPop"
-									class="button icon brands fa-github"
-									target="_blank"
-									rel="noopener noreferrer">GitHub</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</section>
+            <!-- Sub-role 2 -->
+            <div class="xp__subrole">
+                <div class="xp__subhead">
+                <p class="xp__subtitle">ROB-GY 5103 Mechatronics</p>
+                <p class="xp__dates muted">Sep 2025 – Dec 2025</p>
+                </div>
+                <ul>
+                <li>Led weekly lab support for embedded bring-up, sensors/actuators, DC motor control, and debugging workflows.</li>
+                <li>Supported instruction on feedback control and discrete-time concepts; assisted grading and evaluations.</li>
+                </ul>
+            </div>
+            </article>
 
-			<section>
-				<!-- Project 5 -->
-				<a href="project-5.html" class="image">
-					<img src="images/projects/project-5.png" alt="SONAR mapping robot preview" />
-				</a>
+          <article class="xp card">
+            <div class="xp__top">
+              <div class="xp__left">
+                <img class="xp__logo" src="./assets/images/logo-eazyiot.png" alt="EazyIoT logo" />
+                <div class="xp__meta">
+                  <h4>Embedded Systems Engineer</h4>
+                  <p class="muted">Utopia Tech (EazyIoT) • Jul 2023 – Jul 2024 • Mumbai, India</p>
+                </div>
+              </div>
+              <span class="tag">Industry</span>
+            </div>
+            <ul>
+              <li>Developed firmware and PCB designs for high-voltage IoT energy monitoring devices; supported deployments of 10,000+ units and improved fault monitoring to reduce field downtime by ~17%.</li>
+              <li>Modernized legacy bank security infrastructure by engineering retrofit embedded solutions enabling real-time telemetry and remote monitoring.</li>
+              <li>Built custom factory test jigs and automated validation workflows, reducing test cycles for 1,000+ devices from 14 days to 3 days (4.6× throughput).</li>
+              <li>Delivered production firmware in C/C++ across STM32/ESP32/Raspberry Pi; built Python tooling for test automation; integrated HMIs and comms stacks for configuration and visualization.</li>
+            </ul>
+          </article>
+          <article class="xp card">
+            <div class="xp__top">
+                <div class="xp__left">
+                <img class="xp__logo" src="./assets/images/logo-raw.png" alt="RAW logo" />
+                <div class="xp__meta">
+                  <h4>Team Robotics and Automation Wing — Robotics Team</h4>
+                  <p class="muted">St. Francis Institute of Technology • Aug 2019 – May 2022 • Mumbai, India</p>
+                </div>
+              </div>
+              <span class="tag">Leadership</span>
+            </div>
 
-				<div class="content">
-					<div class="inner">
-						<h2>Mapping Robot: SONAR Point-Cloud Mapping &amp; ROS Visualization</h2>
-						<p>
-							Built a differential-drive mapping robot with an ESP32 Micro-ROS node streaming data to a ROS2 ground station,
-							fusing IMU + encoder odometry for pose estimation, and generating real-time SONAR point clouds using a 360° scanning module.
-						</p>
+            <!-- Sub-role 1 -->
+            <div class="xp__subrole">
+                <div class="xp__subhead">
+                <p class="xp__subtitle">Team Vice President</p>
+                <p class="xp__dates muted">Jun 2021 – May 2022</p>
+                </div>
+                <ul>
+                <li>Directed a 20-member team designing, fabricating, and implementing robotics systems for competitive events.</li>
+                <li>Led system integration across mechanical, electronics, and software subsystems; managed timelines and reviews.</li>
+                </ul>
+            </div>
 
-						<ul class="actions">
-							<li><a href="project-5.html" class="button">Learn More</a></li>
-							<li>
-								<a href="https://github.com/RonishNadar/sonar-bot"
-									class="button icon brands fa-github"
-									target="_blank"
-									rel="noopener noreferrer">GitHub</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</section>
+            <!-- Sub-role 2 -->
+            <div class="xp__subrole">
+                <div class="xp__subhead">
+                <p class="xp__subtitle">Electronics & CAD Designer</p>
+                <p class="xp__dates muted">Aug 2019 – May 2021</p>
+                </div>
+                <ul>
+                <li>Established an ESP-NOW based communication system, improving link range by ~30%.</li>
+                <li>Engineered an RS485 multi-drop network to interface modular robotic subsystems, improving efficiency by ~60%.</li>
+                <li>Designed and fabricated 3D-printed component replacements, reducing overall robot weight by ~20%.</li>
+                <li>Built prototypes using Atmel/ESP32, Altium, SolidWorks/Fusion 360, C/C++, and Python for rapid iteration.</li>
+                </ul>
+            </div>
+            </article>
 
-		</section>
+        </div>
+      </div>
+    </section>
 
-		<!-- Contact -->
-		<section id="three" class="wrapper style1 fade-up">
-			<div class="inner">
-				<h2>Get in touch</h2>
-				<p>If you’d like to collaborate, chat about a role, or ask about any project, send me a message here.</p>
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section__head">
+          <h3 class="section__title">Projects</h3>
+        </div>
 
-				<div class="split style1">
-					<section>
-						<form id="contactForm" action="#" method="post">
-							<div class="fields">
-								<div class="field half">
-									<label for="name">Name</label>
-									<input type="text" name="name" id="name" required />
-								</div>
-								<div class="field half">
-									<label for="email">Email</label>
-									<input type="email" name="email" id="email" required />
-								</div>
-								<div class="field">
-									<label for="message">Message</label>
-									<textarea name="message" id="message" rows="5" required></textarea>
-								</div>
-							</div>
+        <div class="grid">
+          <article class="project card">
+            <video class="project-media" autoplay muted loop playsinline preload="metadata" aria-label="Project preview video">
+                <source src="./assets/images/project-1-cover.mp4" type="video/mp4" />
+            </video>
 
-							<ul class="actions">
-								<li>
-									<button type="button" id="sendMail" class="button submit">Send Message</button>
-								</li>
-							</ul>
-						</form>
-					</section>
+            <div class="project__body">
+                <h4>Autonomous Multi-Robot Control via LLM/VLM-Driven Embodied AI Frameworks</h4>
+                <p>
+                “Zero-code” embodied-AI framework that converts natural-language prompts into autonomous multi-robot task sequences using Gemini 2.5 Pro + Moondream VLM.
+                </p>
 
-					<section>
-						<ul class="contact">
-							<li>
-								<h3>Address</h3>
-								<span>New York, NY<br />
-									United States</span>
-							</li>
-							<li>
-								<h3>Email</h3>
-								<a href="mailto:rn2669@nyu.edu">rn2669@nyu.edu</a>
-							</li>
-							<li>
-								<h3>Phone</h3>
-								<span>+1 (718) 930-8963</span>
-							</li>
-							<li>
-								<h3>Social</h3>
-								<ul class="icons">
-									<li><a href="https://github.com/RonishNadar" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-									<li><a href="https://www.linkedin.com/in/ronish-nadar-56861221a/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-								</ul>
-							</li>
-						</ul>
-					</section>
-				</div>
-			</div>
-		</section>
+                <div class="chips">
+                <span>LLM/VLM</span><span>Multi-Robot</span><span>Vision Localization</span><span>RRT*</span><span>Pure Pursuit + PID</span><span>ZeroMQ</span><span>ESP32</span>
+                </div>
 
-	</div>
+                <div class="project__links">
+                <a href="./project1.html">About</a>
+                <a href="https://github.com/Himhawkins/Mobile-manipulation-with-VLMs" target="_blank" rel="noopener">Github</a>
+                </div>
+            </div>
+          </article>
 
-	<!-- Footer -->
-	<footer id="footer" class="wrapper style1-alt">
-		<div class="inner">
-			<ul class="menu">
-				<li>&copy; Ronish Nadar. All rights reserved.</li>
-				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-			</ul>
-		</div>
-	</footer>
+          <article class="project card">
+            <video class="project-media" autoplay muted loop playsinline preload="metadata" aria-label="Project preview video">
+                <source src="./assets/images/project-2-cover.mp4" type="video/mp4" />
+            </video>
+            <div class="project__body">
+                <h4>Dual Track Ackermann Drive Simulation</h4>
+                <p>
+                Physics-based 4-wheel double-track Ackermann simulator with Hybrid A* + B-spline smoothing and robust SMC tracking.
+                </p>
+                <div class="chips">
+                <span>Vehicle Dynamics</span><span>Sliding Mode</span><span>Hybrid A*</span><span>Python</span>
+                </div>
+                <div class="project__links">
+                <a href="./project2.html">About</a>
+                <a href="https://github.com/RonishNadar/ackermann-drive-simulation" target="_blank" rel="noopener">Github</a>
+                </div>
+            </div>
+          </article>
 
-	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+          <article class="project card">
+            <video class="project-media" autoplay muted loop playsinline preload="metadata" aria-label="Project preview video">
+              <source src="./assets/images/project-3-cover.mp4" type="video/mp4" />
+            </video>
 
-	<script>
-		// Auto-grow textarea (dynamic height) without manual resizing
-		(function () {
-			const ta = document.getElementById('message');
-			if (!ta) return;
+            <div class="project__body">
+              <h4>TATA Power: 110 kV Insulator Cleaning Robot</h4>
+              <p>
+                Industrial field robotics system for safe, automated high-voltage insulator maintenance using a custom SCARA manipulator, embedded control, and vision/thermal inspection.
+              </p>
 
-			const autoGrow = () => {
-				ta.style.height = 'auto';
-				ta.style.height = ta.scrollHeight + 'px';
-			};
+              <div class="chips">
+                <span>Field Robotics</span><span>SCARA Manipulator</span><span>Embedded Systems</span><span>OpenCV</span><span>IR Thermography</span><span>Industrial Deployment</span>
+              </div>
 
-			ta.addEventListener('input', autoGrow);
-			window.addEventListener('load', autoGrow);
-		})();
+              <div class="project__links">
+                <a href="./project3.html">About</a>
+                <a href="https://github.com/RonishNadar/110-kV-Insulator-Maintenance-Robot" target="_blank" rel="noopener">Github</a>
+              </div>
+            </div>
+          </article>
 
-		// Mailto "Send Message" that fills Name/Email/Message into the user's email client
-		(function () {
-			const btn = document.getElementById('sendMail');
-			if (!btn) return;
+          <article class="project card">
+            <video class="project-media" autoplay muted loop playsinline preload="metadata" aria-label="Project preview video">
+              <source src="./assets/images/project-4-cover.mp4" type="video/mp4" />
+            </video>
 
-			btn.addEventListener('click', function () {
-				const name = (document.getElementById('name')?.value || '').trim();
-				const email = (document.getElementById('email')?.value || '').trim();
-				const message = (document.getElementById('message')?.value || '').trim();
+            <div class="project__body">
+              <h4>Punch ‘n’ Pop: Rehabilitative Motion-Controlled Game</h4>
+              <p>
+                Accessibility-focused rehab game fusing OpenCV tracking with MPU6050 IMU sensing and low-latency ESP32 ESP-NOW streaming for real-time feedback.
+              </p>
 
-				if (!name || !email || !message) {
-					alert('Please fill in Name, Email, and Message.');
-					return;
-				}
+              <div class="chips">
+                <span>Accessibility</span><span>OpenCV</span><span>IMU</span><span>ESP32</span><span>ESP-NOW</span><span>Real-Time</span>
+              </div>
 
-				const to = 'rn2669@nyu.edu';
-				const subject = 'Portfolio Message';
-				const body =
-					`Name: ${name}\n` +
-					`Email: ${email}\n\n` +
-					`Message:\n${message}\n`;
+              <div class="project__links">
+                <a href="./project4.html">About</a>
+                <a href="https://github.com/AmrapaliKhandare/punchNPop" target="_blank" rel="noopener">Github</a>
+              </div>
+            </div>
+          </article>
 
-				const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-				window.location.href = mailto;
-			});
-		})();
-	</script>
+          <article class="project card">
+          <video class="project-media" autoplay muted loop playsinline preload="metadata" aria-label="Project preview video">
+            <source src="./assets/images/project-5-cover.mp4" type="video/mp4" />
+          </video>
 
+          <div class="project__body">
+            <h4>Mapping Robot: SONAR Point-Cloud Mapping & ROS Visualization</h4>
+            <p>
+              Differential-drive robot streaming SONAR + IMU/encoder odometry via ESP32 Micro-ROS to generate a live point-cloud map in ROS 2 (RViz).
+            </p>
+
+            <div class="chips">
+              <span>ESP32</span><span>Micro-ROS</span><span>ROS 2</span><span>Sensor Fusion</span><span>SONAR</span><span>RViz</span>
+            </div>
+
+            <div class="project__links">
+              <a href="./project5.html">About</a>
+              <a href="https://github.com/RonishNadar/sonar-bot" target="_blank" rel="noopener">Github</a>
+            </div>
+          </div>
+        </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section" id="certs">
+      <div class="container">
+        <div class="section__head">
+          <h3 class="section__title">Certifications</h3>
+        </div>
+
+        <div class="cert-grid">
+          <!-- Cert 1 -->
+          <article class="cert card">
+            <button class="cert__open" type="button"
+              data-full="./assets/images/cswa-mech.jpg"
+              aria-label="Preview certificate: CSWA — Mechanical Design">
+              <img class="cert__img" src="./assets/images/cswa-mech.jpg" alt="CSWA certificate - Mechanical Design" />
+            </button>
+            <div class="cert__body">
+              <h4>CSWA — Mechanical Design</h4>
+              <p class="muted">Dassault Systèmes · 2021</p>
+            </div>
+          </article>
+
+          <!-- Cert 2 -->
+          <article class="cert card">
+            <button class="cert__open" type="button"
+              data-full="./assets/images/cswa-cbi.jpg"
+              aria-label="Preview certificate: CSWA-CBI — Collaborative Business Innovator">
+              <img class="cert__img" src="./assets/images/cswa-cbi.jpg" alt="CSWA-CBI certificate - Collaborative Business Innovator" />
+            </button>
+            <div class="cert__body">
+              <h4>CSWA-CBI — Collaborative Business Innovator</h4>
+              <p class="muted">Dassault Systèmes · 2021</p>
+            </div>
+          </article>
+
+          <!-- Cert 3 -->
+          <article class="cert card">
+            <button class="cert__open" type="button"
+              data-full="./assets/images/cswp-mech.jpg"
+              aria-label="Preview certificate: CSWP — Mechanical Design">
+              <img class="cert__img" src="./assets/images/cswp-mech.jpg" alt="CSWP certificate - Mechanical Design" />
+            </button>
+            <div class="cert__body">
+              <h4>CSWP — Mechanical Design</h4>
+              <p class="muted">Dassault Systèmes · 2021</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificate Preview Modal (place once near end of body) -->
+    <div class="modal" id="certModal" aria-hidden="true">
+      <div class="modal__backdrop" data-close></div>
+      <div class="modal__panel" role="dialog" aria-modal="true" aria-label="Certificate preview">
+        <button class="modal__close" type="button" data-close aria-label="Close preview">×</button>
+        <img class="modal__img" id="certModalImg" alt="Certificate preview" />
+      </div>
+    </div>
+
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <h3 class="section__title">Contact</h3>
+        <div class="card contact">
+          <p>
+            If you’d like to collaborate, chat about a role, or ask about any project, send me an email.
+          </p>
+          <div class="contact__row">
+            <a class="btn" href="mailto:rn2669@nyu.edu">Email me</a>
+            <a class="btn btn--ghost" href="./assets/Ronish_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+          </div>
+          <div class="hero__links">
+            <a href="mailto:rn2669@nyu.edu">rn2669@nyu.edu</a>
+            <span class="dot">•</span>
+            <a href="https://www.linkedin.com/in/ronish-nadar-56861221a/" target="_blank" rel="noopener">LinkedIn</a>
+            <span class="dot">•</span>
+            <a href="https://github.com/RonishNadar" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="muted">© <span id="year"></span> Ronish Nadar</p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="./script.js"></script>
 </body>
-
 </html>
