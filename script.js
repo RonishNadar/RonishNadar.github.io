@@ -61,3 +61,30 @@ mobileNav.querySelectorAll("a").forEach(a => {
     if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
   });
 })();
+
+// Make project cards clickable (go to About page)
+(function () {
+  const cards = document.querySelectorAll(".project--clickable[data-href]");
+
+  cards.forEach((card) => {
+    card.addEventListener("click", (e) => {
+      // Allow normal clicks on links/buttons inside the card
+      if (e.target.closest("a, button")) return;
+
+      const href = card.getAttribute("data-href");
+      if (href) window.location.href = href;
+    });
+
+    // Keyboard support
+    card.setAttribute("tabindex", "0");
+    card.setAttribute("role", "link");
+
+    card.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        const href = card.getAttribute("data-href");
+        if (href) window.location.href = href;
+      }
+    });
+  });
+})();
