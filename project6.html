@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Project | Electronic Nose — VOC Detection System</title>
+  <meta name="description" content="8-sensor MQ-series electronic nose for volatile organic compound detection with Arduino Mega firmware, drift compensation, and Python classification pipeline." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <style>
+    .page-title { font-size: 34px; margin: 6px 0 0; line-height: 1.15; }
+    .page-sub   { margin-top: 12px; }
+    .media      { margin-top: 14px; }
+    .media img  { width: 100%; border-radius: 14px; border: 1px solid var(--line); display: block; }
+    .divider    { border: none; border-top: 1px solid var(--line); margin: 18px 0; }
+
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .two-col-grid img {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      display: block;
+      object-fit: cover;
+    }
+    .three-col-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .three-col-grid img {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      display: block;
+      object-fit: cover;
+      aspect-ratio: 1 / 1;
+    }
+    @media (max-width: 760px) {
+      .two-col-grid   { grid-template-columns: 1fr; }
+      .three-col-grid { grid-template-columns: 1fr; }
+      .page-title     { font-size: 28px; }
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+    @media (max-width: 760px) { .feature-grid { grid-template-columns: 1fr; } }
+    .feature h4 { margin: 0 0 8px; font-size: 16px; }
+    .feature p  { margin: 0; color: var(--muted); line-height: 1.6; }
+
+    .sensor-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+    .sensor-table th,
+    .sensor-table td {
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .sensor-table th {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .sensor-table tr:last-child td { border-bottom: none; }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="./index.html" aria-label="Home">RN</a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="./index.html#about">About</a>
+        <a href="./index.html#experience">Experience</a>
+        <a href="./index.html#projects">Projects</a>
+        <a href="./index.html#certs">Certifications</a>
+        <a href="./index.html#contact">Contact</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--ghost" href="./assets/Ronish_Nadar_Firmware_Resume.pdf" target="_blank" rel="noopener">Firmware Resume</a>
+        <a class="btn btn--ghost" href="./assets/Ronish_Nadar_Robotics_Resume.pdf" target="_blank" rel="noopener">Robotics Resume</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <a href="./index.html#about">About</a>
+      <a href="./index.html#experience">Experience</a>
+      <a href="./index.html#projects">Projects</a>
+      <a href="./index.html#certs">Certifications</a>
+      <a href="./index.html#contact">Contact</a>
+      <a class="btn btn--ghost" href="./assets/Ronish_Nadar_Firmware_Resume.pdf" target="_blank" rel="noopener">Firmware Resume</a>
+      <a class="btn btn--ghost" href="./assets/Ronish_Nadar_Robotics_Resume.pdf" target="_blank" rel="noopener">Robotics Resume</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="card">
+          <p class="kicker">Project</p>
+          <h1 class="page-title">Electronic Nose — VOC Detection &amp; Classification System</h1>
+
+          <p class="muted page-sub">
+            A fully custom electronic nose (e-nose) built from the ground up: 8-sensor MQ-series array in a
+            3D-printed flow-controlled housing, Arduino Mega firmware for multi-channel ADC acquisition and data logging,
+            and a Python signal processing pipeline for drift compensation, SNR-ranked feature extraction,
+            and multi-class VOC classification.
+          </p>
+
+          <div class="pill-row" style="margin-top:14px;">
+            <span class="pill">Arduino Mega</span>
+            <span class="pill">MQ Sensors</span>
+            <span class="pill">ADC / Firmware</span>
+            <span class="pill">Drift Compensation</span>
+            <span class="pill">Python</span>
+            <span class="pill">Feature Extraction</span>
+            <span class="pill">VOC Classification</span>
+            <span class="pill">3D Printing</span>
+          </div>
+
+          <hr class="divider" />
+
+          <!-- Cover image -->
+          <div class="media">
+            <img src="./assets/images/project-6-cover.png" alt="Electronic nose assembled system overview" />
+          </div>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Overview</h3>
+          <p class="muted">
+            Electronic noses mimic biological olfaction by using an array of partially overlapping gas sensors
+            to produce a unique "fingerprint" response for different volatile compounds. This project covers
+            the full stack: mechanical enclosure design, embedded firmware, analog signal conditioning,
+            and a machine learning classification pipeline — all built and validated from scratch.
+          </p>
+          <p class="muted" style="margin-top:10px;">
+            The housing uses a fan-driven forced-airflow design to ensure consistent sample delivery to all 8 sensors
+            simultaneously. A honeycomb inlet diffuser on the front face and a 120mm exhaust fan on the rear
+            create a controlled laminar flow across the sensor wheel, minimizing measurement variance between samples.
+          </p>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Hardware &amp; Enclosure</h3>
+          <p class="muted">
+            The enclosure was designed in SolidWorks and 3D-printed in PLA. Four modular sections bolt together:
+            a honeycomb inlet cap, a temperature/humidity sensor housing, the main sensor wheel (holding all 8 MQ sensors
+            in a radial pattern), and a rear fan mount. The sensor wheel uses a spoke-and-rim design to expose
+            all sensors to the airflow path equally.
+          </p>
+
+          <div class="three-col-grid" style="margin-top:14px;">
+            <img src="./assets/images/project-6-assembled-1.jpeg" alt="Assembled e-nose enclosure side view" />
+            <img src="./assets/images/project-6-assembled-2.jpeg" alt="Assembled e-nose with fan and PSU" />
+            <img src="./assets/images/project-6-3d-model.png"     alt="Exploded 3D CAD model of the enclosure" />
+          </div>
+
+          <div class="two-col-grid" style="margin-top:14px;">
+            <img src="./assets/images/project-6-sensor-array.jpeg"       alt="8-sensor MQ array mounted on radial wheel" />
+            <img src="./assets/images/project-6-temp-sensor-housing.jpeg" alt="Honeycomb inlet with temperature sensor" />
+          </div>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Sensor Array</h3>
+          <p class="muted">
+            8 MQ-series gas sensors are mounted in a radial arrangement on a 3D-printed spoke wheel,
+            each targeting a different class of volatile compounds. The cross-sensitivity between sensors
+            is intentional — overlapping responses produce a richer discriminative fingerprint than
+            single-analyte sensors.
+          </p>
+
+          <table class="sensor-table">
+            <thead>
+              <tr>
+                <th>Sensor</th>
+                <th>Primary Target</th>
+                <th>ADC Channel</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>MQ-3</td><td>Alcohol / ethanol vapors</td><td>A0</td></tr>
+              <tr><td>MQ-135</td><td>Air quality / NH₃, CO₂, benzene</td><td>A1</td></tr>
+              <tr><td>MQ-4</td><td>Methane / natural gas</td><td>A2</td></tr>
+              <tr><td>MQ-8</td><td>Hydrogen gas</td><td>A3</td></tr>
+              <tr><td>MQ-7</td><td>Carbon monoxide</td><td>A8</td></tr>
+              <tr><td>MQ-2</td><td>Smoke / LPG / propane</td><td>A9</td></tr>
+              <tr><td>MQ-6</td><td>LPG / butane / propane</td><td>A10</td></tr>
+              <tr><td>MQ-5</td><td>Natural gas / LPG</td><td>A11</td></tr>
+            </tbody>
+          </table>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Firmware — Arduino Mega ADC Acquisition</h3>
+          <ul>
+            <li><strong>Multi-channel ADC sampling:</strong> All 8 sensor channels polled at configurable 1–10 Hz rates via Arduino Mega ADC (12 analog inputs) with hardware averaging to reduce quantization noise.</li>
+            <li><strong>Ring-buffer data logging:</strong> Sensor readings stored in a circular buffer in SRAM and flushed to serial/SD in timestamped CSV batches for offline analysis.</li>
+            <li><strong>Warm-up sequencing:</strong> Firmware implements a timed warm-up phase (MQ sensors require 24–48 hours for first stabilization, 60 s per session) before any acquisition begins, with LED status indication.</li>
+            <li><strong>Baseline capture:</strong> Clean-air baseline snapshot taken at session start; delta responses computed relative to this baseline throughout the measurement window.</li>
+            <li><strong>Fan PWM control:</strong> 120mm exhaust fan driven via PWM output to maintain consistent airflow rate across all measurements.</li>
+          </ul>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Signal Processing &amp; Data Pipeline</h3>
+          <ul>
+            <li><strong>Raw ADC → filtered:</strong> Per-channel moving-average filter applied to raw ADC values to remove high-frequency noise while preserving response transients.</li>
+            <li><strong>Normalized response:</strong> Each channel's response expressed as Δ/baseline (%) to eliminate inter-sensor gain differences and session-to-session baseline drift.</li>
+            <li><strong>Drift compensation:</strong> Exponential baseline tracking applied over long sessions to compensate for MQ sensor thermal drift and aging effects.</li>
+            <li><strong>SNR-ranked feature selection:</strong> Per-channel SNR computed across a labeled dataset; sensors ranked by discriminative power. Lowest-SNR sensors pruned from the feature vector to reduce classifier complexity without accuracy loss.</li>
+            <li><strong>Radar response profile:</strong> Peak normalized response per sensor plotted on a radar chart to visualize the unique "scent fingerprint" of each VOC sample.</li>
+          </ul>
+
+          <!-- Data plots image -->
+          <div class="media" style="margin-top:14px;">
+            <img src="./assets/images/project-6-data-plots.png" alt="ADC traces, filtered signals, normalized response, and sensor radar profile for a perfume sample" />
+          </div>
+          <p class="muted" style="margin-top:8px; font-size:13px;">
+            Raw ADC (top left), filtered signal (top right), normalized Δ/baseline response (bottom left),
+            and radar response profile (bottom right) for a perfume VOC sample. MQ-135 and MQ-3 show the
+            strongest response at ~32% and ~24% respectively.
+          </p>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 10px;">Tech Stack</h3>
+          <div class="feature-grid">
+            <div class="card feature">
+              <h4>Embedded Firmware</h4>
+              <p>Arduino Mega (ATmega2560) C/C++; 8-channel ADC acquisition; ring-buffer logging; fan PWM; warm-up sequencing; serial CSV output.</p>
+            </div>
+            <div class="card feature">
+              <h4>Mechanical Design</h4>
+              <p>SolidWorks enclosure: honeycomb inlet diffuser, radial sensor wheel, modular bolt-together sections, 120mm fan mount.</p>
+            </div>
+            <div class="card feature">
+              <h4>Signal Processing</h4>
+              <p>Python: moving-average filter, baseline capture, Δ/baseline normalization, exponential drift compensation, SNR ranking.</p>
+            </div>
+            <div class="card feature">
+              <h4>Visualization</h4>
+              <p>Matplotlib time-series plots (raw, filtered, normalized), radar response profiles, per-sensor SNR bar charts.</p>
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <div class="hero__cta" style="margin-top:0;">
+            <a class="btn btn--ghost" href="./index.html#projects">Back to Projects</a>
+            <a class="btn" href="https://github.com/RonishNadar/electronic-nose" target="_blank" rel="noopener">GitHub Repo</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="muted">© <span id="year"></span> Ronish Nadar. Built with GitHub Pages.</p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
