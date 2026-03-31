@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Project | OPEN-01: Open-Source Differential Drive Robot</title>
+  <meta name="description" content="OPEN-01 — open-source differential drive robot platform with ESP-IDF firmware, ROS2 autonomy stack, EKF sensor fusion, SLAM, and Nav2." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <style>
+    .page-title { font-size: 34px; margin: 6px 0 0; line-height: 1.15; }
+    .page-sub   { margin-top: 12px; }
+    .divider    { border: none; border-top: 1px solid var(--line); margin: 22px 0; }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .photo-card {
+      overflow: hidden;
+      padding: 0;
+      background: rgba(0,0,0,.08);
+    }
+    .photo-card img {
+      width: 100%;
+      display: block;
+      border-bottom: 1px solid var(--line);
+    }
+    .photo-card p {
+      margin: 0;
+      padding: 12px 14px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* Architecture flow diagram */
+    .arch-flow {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      margin-top: 16px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .arch-node {
+      flex: 1;
+      padding: 18px 14px;
+      background: rgba(0,0,0,.08);
+      border-right: 1px solid var(--line);
+      position: relative;
+    }
+    .arch-node:last-child { border-right: none; }
+    .arch-node__label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .arch-node__title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+    .arch-node__items {
+      list-style: none;
+      padding: 0; margin: 0;
+      font-size: 11.5px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+    .arch-arrow {
+      display: flex;
+      align-items: center;
+      padding: 0 4px;
+      font-size: 18px;
+      color: var(--accent);
+      background: rgba(0,0,0,.08);
+      border-right: 1px solid var(--line);
+    }
+    @media (max-width: 760px) {
+      .arch-flow { flex-direction: column; }
+      .arch-node { border-right: none; border-bottom: 1px solid var(--line); }
+      .arch-node:last-child { border-bottom: none; }
+      .arch-arrow { display: none; }
+      .page-title { font-size: 26px; }
+      .photo-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Topic table */
+    .topic-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+    .topic-table th {
+      text-align: left;
+      padding: 8px 12px;
+      background: rgba(0,0,0,.12);
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--line);
+    }
+    .topic-table td {
+      padding: 7px 12px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-family: monospace;
+      font-size: 12px;
+    }
+    .topic-table td:first-child {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .topic-table tr:last-child td { border-bottom: none; }
+
+    /* Feature grid */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 14px;
+      margin-top: 12px;
+    }
+    @media (max-width: 640px) { .feature-grid { grid-template-columns: 1fr; } }
+    .feature h4 { margin: 0 0 8px; font-size: 15px; }
+    .feature p  { margin: 0; color: var(--muted); line-height: 1.6; font-size: 13.5px; }
+
+    /* Stat row */
+    .stat-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 14px;
+      flex-wrap: wrap;
+    }
+    .stat {
+      flex: 1;
+      min-width: 120px;
+      background: rgba(0,0,0,.10);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 14px 16px;
+      text-align: center;
+    }
+    .stat__num {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat__label {
+      font-size: 11.5px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* Pin map grid */
+    .pin-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-top: 12px;
+    }
+    @media (max-width: 640px) { .pin-grid { grid-template-columns: 1fr 1fr; } }
+    .pin-card {
+      background: rgba(0,0,0,.10);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px 12px;
+    }
+    .pin-card__func {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      font-weight: 600;
+    }
+    .pin-card__gpio {
+      font-family: monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    /* Status badge */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 100px;
+      background: rgba(34,197,94,.15);
+      color: #22c55e;
+      border: 1px solid rgba(34,197,94,.3);
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+    .status-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; }
+      50%      { opacity: .4; }
+    }
+
+    /* Checklist */
+    .checklist { list-style: none; padding: 0; margin: 10px 0 0; }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 5px 0;
+      font-size: 13.5px;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist li.done { color: var(--fg, inherit); }
+    .check-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+    .check-icon.done { color: #22c55e; }
+    .check-icon.wip  { color: #f59e0b; }
+    .check-icon.todo { color: var(--muted); }
+
+    /* Two col */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+    @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo" href="./index.html" aria-label="Home">RN</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="./index.html#about">About</a>
+        <a href="./index.html#experience">Experience</a>
+        <a href="./index.html#projects">Projects</a>
+        <a href="./index.html#certs">Certifications</a>
+        <a href="./index.html#contact">Contact</a>
+      </nav>
+      <div class="header__actions">
+        <a class="btn btn--ghost" href="./assets/Ronish_Nadar_Robotics_Resume.pdf" target="_blank" rel="noopener">Robotics Resume</a>
+        <a class="btn btn--ghost" href="./assets/Ronish_Nadar_Firmware_Resume.pdf" target="_blank" rel="noopener">Firmware Resume</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <a href="./index.html#about">About</a>
+      <a href="./index.html#experience">Experience</a>
+      <a href="./index.html#projects">Projects</a>
+      <a href="./index.html#certs">Certifications</a>
+      <a href="./index.html#contact">Contact</a>
+      <a class="btn btn--ghost" href="./assets/Ronish_Nadar_Robotics_Resume.pdf" target="_blank" rel="noopener">Robotics Resume</a>
+      <a class="btn btn--ghost" href="./assets/Ronish_Nadar_Firmware_Resume.pdf" target="_blank" rel="noopener">Firmware Resume</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="card">
+
+          <!-- Title block -->
+          <p class="kicker">Project</p>
+          <h1 class="page-title">
+            OPEN-01: Open-Source Differential Drive Robot
+            <span class="status-badge">Active</span>
+          </h1>
+          <p class="muted page-sub">
+            A low-cost, fully open-source alternative to the TurtleBot3, built around an <strong>ESP32-S2</strong>
+            running bare-metal ESP-IDF firmware and a <strong>Raspberry Pi 3B</strong> running ROS2 Humble.
+            The platform spans the full stack: real-time embedded firmware, a custom binary telemetry protocol,
+            ROS2 sensor fusion via EKF, SLAM, and autonomous navigation with Nav2.
+          </p>
+
+          <div class="pill-row" style="margin-top:14px;">
+            <span class="pill">ESP-IDF</span>
+            <span class="pill">FreeRTOS</span>
+            <span class="pill">ROS2</span>
+            <span class="pill">EKF Sensor Fusion</span>
+            <span class="pill">SLAM Toolbox</span>
+            <span class="pill">Nav2</span>
+            <span class="pill">RPLidar C1</span>
+            <span class="pill">MPU6500</span>
+            <span class="pill">VL53L0X</span>
+            <span class="pill">CRC16-CCITT</span>
+          </div>
+
+          <!-- Key stats -->
+          <div class="stat-row">
+            <div class="stat">
+              <div class="stat__num">460800</div>
+              <div class="stat__label">Baud UART telemetry link</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num">40 Hz</div>
+              <div class="stat__label">Odometry publish rate</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num">30 Hz</div>
+              <div class="stat__label">EKF filtered odometry</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num">10</div>
+              <div class="stat__label">ROS2 topics published</div>
+            </div>
+            <div class="stat">
+              <div class="stat__num">3×</div>
+              <div class="stat__label">ToF sensors (left / right / back)</div>
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <h3 style="margin:0 0 6px;">Robot Build Photos</h3>
+          <p class="muted" style="font-size:13.5px; margin-bottom:0;">
+            Current hardware build of OPEN-01 showing the 3D-printed chassis, Raspberry Pi based ROS2 bridge,
+            ESP32-S2 controller board, integrated display, and top-mounted RPLidar.
+          </p>
+          <div class="photo-grid">
+            <div class="card photo-card">
+              <img src="./assets/images/project-7-robot1.png" alt="Front angled view of the OPEN-01 differential drive robot" />
+              <p>Front-side view showing the Raspberry Pi bridge layer, wiring layout, power distribution, and top-mounted RPLidar module.</p>
+            </div>
+            <div class="card photo-card">
+              <img src="./assets/images/project-7-robot2.png" alt="Rear angled view of the OPEN-01 differential drive robot" />
+              <p>Rear-side view highlighting the integrated OLED display, lower embedded controller board, and compact two-level chassis layout.</p>
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <!-- System architecture -->
+          <h3 style="margin:0 0 6px;">System Architecture</h3>
+          <p class="muted" style="font-size:13.5px; margin-bottom:0;">
+            Three-tier layered architecture: real-time firmware on ESP32-S2, ROS2 bridge on Raspberry Pi, and full autonomy stack on the dev laptop over WiFi.
+          </p>
+          <div class="arch-flow">
+            <div class="arch-node">
+              <div class="arch-node__label">Tier 1 — Real-Time</div>
+              <div class="arch-node__title">ESP32-S2 Firmware</div>
+              <ul class="arch-node__items">
+                <li>Motor PID (25kHz PWM)</li>
+                <li>MPU6500 IMU (I²C Bus 1)</li>
+                <li>3× VL53L0X ToF (I²C Bus 0)</li>
+                <li>Wheel encoder odometry</li>
+                <li>Battery ADC monitoring</li>
+                <li>UART TX @ 460800 baud</li>
+                <li>CRC16-CCITT framing</li>
+              </ul>
+            </div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-node">
+              <div class="arch-node__label">Tier 2 — ROS2 Bridge</div>
+              <div class="arch-node__title">Raspberry Pi 3B</div>
+              <ul class="arch-node__items">
+                <li>serial_bridge node</li>
+                <li>Parses binary protocol</li>
+                <li>Publishes 10 ROS2 topics</li>
+                <li>RPLidar C1 /scan node</li>
+                <li>robot_state_publisher</li>
+                <li>Systemd autostart</li>
+                <li>ROS2 Humble</li>
+              </ul>
+            </div>
+            <div class="arch-arrow">→</div>
+            <div class="arch-node">
+              <div class="arch-node__label">Tier 3 — Autonomy</div>
+              <div class="arch-node__title">Laptop (WiFi)</div>
+              <ul class="arch-node__items">
+                <li>robot_localization EKF</li>
+                <li>/odometry/filtered @ 30Hz</li>
+                <li>SLAM Toolbox (/map)</li>
+                <li>Nav2 autonomous nav</li>
+                <li>RViz2 visualization</li>
+                <li>Full URDF + TF tree</li>
+                <li>ROS2 Jazzy</li>
+              </ul>
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <!-- Key engineering challenges -->
+          <h3 style="margin:0 0 10px;">Key Engineering Challenges</h3>
+          <div class="feature-grid">
+            <div class="card feature">
+              <h4>Custom Binary Telemetry Protocol</h4>
+              <p>
+                Standard ASCII serial was too slow for multi-sensor streaming. Designed a compact binary protocol
+                over UART at 460800 baud with CRC16-CCITT framing, achieving stable 40 Hz multi-sensor
+                streaming (odometry, IMU, 3× ToF, battery) with zero packet loss.
+              </p>
+            </div>
+            <div class="card feature">
+              <h4>VL53L0X I²C Address Conflict</h4>
+              <p>
+                All three VL53L0X sensors share the same default I²C address (0x29). Resolved by wiring
+                dedicated XSHUT pins (GPIO10/11/12) and sequentially powering each sensor at boot to
+                assign unique addresses (0x30, 0x31, 0x32) before releasing all three simultaneously.
+              </p>
+            </div>
+            <div class="card feature">
+              <h4>IMU-Only EKF Fusion Limitation</h4>
+              <p>
+                MPU6500 has no magnetometer, making absolute heading fusion unreliable. Selectively fused
+                only wheel odometry and IMU angular velocity (vyaw) in robot_localization EKF, avoiding
+                orientation drift while still improving localization over raw odometry alone.
+              </p>
+            </div>
+            <div class="card feature">
+              <h4>FIT0441 Motor Quirks</h4>
+              <p>
+                FIT0441 brushless motors use inverted PWM logic (255 = stop, 0 = full speed) and require
+                a startup kick to overcome static friction. FG pins are open-collector and need 5kΩ
+                pull-ups to 3.3V for reliable encoder pulse counting.
+              </p>
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <!-- ROS2 Topics -->
+          <h3 style="margin:0 0 4px;">Published ROS2 Topics</h3>
+          <div class="card" style="margin-top:12px; padding:0; overflow:hidden; background:rgba(0,0,0,.08);">
+            <table class="topic-table">
+              <thead>
+                <tr>
+                  <th>Topic</th>
+                  <th>Message Type</th>
+                  <th>Source</th>
+                  <th>Rate</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>/odom</td><td>nav_msgs/Odometry</td><td>serial_bridge</td><td>40 Hz</td></tr>
+                <tr><td>/imu/data</td><td>sensor_msgs/Imu</td><td>serial_bridge</td><td>40 Hz</td></tr>
+                <tr><td>/battery_state</td><td>sensor_msgs/BatteryState</td><td>serial_bridge</td><td>1 Hz</td></tr>
+                <tr><td>/tof/left</td><td>sensor_msgs/Range</td><td>serial_bridge</td><td>10 Hz</td></tr>
+                <tr><td>/tof/right</td><td>sensor_msgs/Range</td><td>serial_bridge</td><td>10 Hz</td></tr>
+                <tr><td>/tof/back</td><td>sensor_msgs/Range</td><td>serial_bridge</td><td>10 Hz</td></tr>
+                <tr><td>/scan</td><td>sensor_msgs/LaserScan</td><td>lidar_node (RPLidar C1)</td><td>5 Hz</td></tr>
+                <tr><td>/joint_states</td><td>sensor_msgs/JointState</td><td>serial_bridge</td><td>40 Hz</td></tr>
+                <tr><td>/odometry/filtered</td><td>nav_msgs/Odometry</td><td>EKF node</td><td>30 Hz</td></tr>
+                <tr><td>/cmd_vel</td><td>geometry_msgs/Twist</td><td>Nav2 / teleop</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <hr class="divider" />
+
+          <!-- Firmware architecture -->
+          <h3 style="margin:0 0 10px;">Firmware Architecture</h3>
+          <p class="muted" style="font-size:13.5px;">
+            Clean layered separation: constants live in <code>config/</code>, shared state in <code>common/</code>,
+            hardware drivers in <code>drivers/</code>, board abstraction in <code>hal/</code>, reusable robotics logic
+            in <code>services/</code>, and FreeRTOS task entry points in <code>tasks/</code>. All tasks are pinned to
+            Core 0 (ESP32-S2 is single-core).
+          </p>
+          <div class="two-col">
+            <div class="card feature" style="margin-top:0;">
+              <h4>FreeRTOS Tasks</h4>
+              <ul style="margin:0; padding-left:18px; color:var(--muted); font-size:13.5px; line-height:1.8;">
+                <li>IMU Task — MPU6500 read @ 100 Hz</li>
+                <li>ToF Task — 3× VL53L0X ranging</li>
+                <li>Motor Task — PID + PWM output</li>
+                <li>Odometry Task — encoder kinematics</li>
+                <li>Comms Task — UART TX serialization</li>
+                <li>Battery Task — ADC sampling</li>
+              </ul>
+            </div>
+            <div class="card feature" style="margin-top:0;">
+              <h4>Hardware</h4>
+              <ul style="margin:0; padding-left:18px; color:var(--muted); font-size:13.5px; line-height:1.8;">
+                <li>MCU: ESP32-S2 (single core)</li>
+                <li>Motors: FIT0441 brushless DC</li>
+                <li>IMU: MPU6500 (WHO_AM_I=0x70)</li>
+                <li>ToF: 3× VL53L0X (Pololu init)</li>
+                <li>LiDAR: RPLidar C1</li>
+                <li>Battery: 3S Li-Ion (12.6V / 9.0V cutoff)</li>
+              </ul>
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <!-- GPIO Pin Map -->
+          <h3 style="margin:0 0 10px;">ESP32-S2 Pin Map</h3>
+          <div class="pin-grid">
+            <div class="pin-card"><div class="pin-card__func">I²C Bus 0 SDA (ToF)</div><div class="pin-card__gpio">GPIO14</div></div>
+            <div class="pin-card"><div class="pin-card__func">I²C Bus 0 SCL (ToF)</div><div class="pin-card__gpio">GPIO13</div></div>
+            <div class="pin-card"><div class="pin-card__func">I²C Bus 1 SDA (IMU)</div><div class="pin-card__gpio">GPIO5</div></div>
+            <div class="pin-card"><div class="pin-card__func">I²C Bus 1 SCL (IMU)</div><div class="pin-card__gpio">GPIO4</div></div>
+            <div class="pin-card"><div class="pin-card__func">XSHUT Left (0x30)</div><div class="pin-card__gpio">GPIO12</div></div>
+            <div class="pin-card"><div class="pin-card__func">XSHUT Back (0x31)</div><div class="pin-card__gpio">GPIO11</div></div>
+            <div class="pin-card"><div class="pin-card__func">XSHUT Right (0x32)</div><div class="pin-card__gpio">GPIO10</div></div>
+            <div class="pin-card"><div class="pin-card__func">UART TX</div><div class="pin-card__gpio">GPIO19</div></div>
+            <div class="pin-card"><div class="pin-card__func">UART RX</div><div class="pin-card__gpio">GPIO20</div></div>
+            <div class="pin-card"><div class="pin-card__func">Motor Right PWM</div><div class="pin-card__gpio">GPIO15</div></div>
+            <div class="pin-card"><div class="pin-card__func">Motor Right DIR</div><div class="pin-card__gpio">GPIO16</div></div>
+            <div class="pin-card"><div class="pin-card__func">Motor Right FG</div><div class="pin-card__gpio">GPIO17</div></div>
+            <div class="pin-card"><div class="pin-card__func">Motor Left PWM</div><div class="pin-card__gpio">GPIO21</div></div>
+            <div class="pin-card"><div class="pin-card__func">Motor Left DIR</div><div class="pin-card__gpio">GPIO33</div></div>
+            <div class="pin-card"><div class="pin-card__func">Motor Left FG</div><div class="pin-card__gpio">GPIO34</div></div>
+            <div class="pin-card"><div class="pin-card__func">Battery ADC</div><div class="pin-card__gpio">GPIO2</div></div>
+          </div>
+
+          <hr class="divider" />
+
+          <!-- Project status -->
+          <h3 style="margin:0 0 10px;">Project Status</h3>
+          <div class="two-col">
+            <div>
+              <p style="font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin:0 0 8px;">Firmware</p>
+              <ul class="checklist">
+                <li class="done"><span class="check-icon done">✓</span>ESP-IDF firmware scaffold</li>
+                <li class="done"><span class="check-icon done">✓</span>Shared robot state</li>
+                <li class="done"><span class="check-icon done">✓</span>Motor control task + PID</li>
+                <li class="done"><span class="check-icon done">✓</span>IMU task (MPU6500)</li>
+                <li class="done"><span class="check-icon done">✓</span>ToF task (3× VL53L0X)</li>
+                <li class="done"><span class="check-icon done">✓</span>Odometry + kinematics</li>
+                <li class="done"><span class="check-icon done">✓</span>Battery monitoring</li>
+                <li class="done"><span class="check-icon done">✓</span>UART comms (custom binary protocol)</li>
+                <li class="done"><span class="check-icon done">✓</span>Linux setup script + GUI launcher</li>
+              </ul>
+            </div>
+            <div>
+              <p style="font-size:12px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin:0 0 8px;">ROS2 Stack</p>
+              <ul class="checklist">
+                <li class="done"><span class="check-icon done">✓</span>Serial bridge node</li>
+                <li class="done"><span class="check-icon done">✓</span>URDF robot description + TF tree</li>
+                <li class="done"><span class="check-icon done">✓</span>RViz2 visualization</li>
+                <li class="done"><span class="check-icon done">✓</span>Systemd autostart</li>
+                <li class="done"><span class="check-icon done">✓</span>robot_localization EKF</li>
+                <li class="done"><span class="check-icon done">✓</span>RPLidar C1 integration</li>
+                <li class="done"><span class="check-icon done">✓</span>SLAM Toolbox</li>
+                <li class="done"><span class="check-icon done">✓</span>Nav2 autonomous navigation</li>
+                <li class="done"><span class="check-icon done">✓</span>PID gain tuning</li>
+              </ul>
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <div class="hero__cta" style="margin-top:0;">
+            <a class="btn btn--ghost" href="./index.html#projects">← Back to Projects</a>
+            <a class="btn" href="https://github.com/RonishNadar/open-01" target="_blank" rel="noopener">GitHub Repo</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="muted">© <span id="year"></span> Ronish Nadar. Built with GitHub Pages.</p>
+      </div>
+    </footer>
+  </main>
+
+  <script src="./script.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
