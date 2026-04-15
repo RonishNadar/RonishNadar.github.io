@@ -413,26 +413,7 @@ h2{font-size:22px; margin:14px 0 0; color:var(--muted)}
 /* =========================================
    EXPERIENCE
    ========================================= */
-.stack{display:grid; gap:14px; position: relative;}
-
-/* Timeline connector */
-.stack::before {
-  content: '';
-  position: absolute;
-  left: 25px;
-  top: 50px;
-  bottom: 50px;
-  width: 2px;
-  background: linear-gradient(180deg, var(--accent), rgba(122,162,255,.05));
-  border-radius: 2px;
-  z-index: 0;
-  opacity: .3;
-}
-
-.stack .card {
-  position: relative;
-  z-index: 1;
-}
+.stack{display:grid; gap:14px;}
 
 .xp__top{
   display:flex; justify-content:space-between; gap:14px; align-items:flex-start;
