@@ -305,7 +305,7 @@
             <span class="pill">EKF Sensor Fusion</span>
             <span class="pill">SLAM Toolbox</span>
             <span class="pill">Nav2</span>
-            <span class="pill">RPLidar C1</span>
+            <span class="pill">RPLidar A1M8</span>
             <span class="pill">MPU6500</span>
             <span class="pill">VL53L0X</span>
             <span class="pill">CRC16-CCITT</span>
@@ -382,7 +382,7 @@
                 <li>serial_bridge node</li>
                 <li>Parses binary protocol</li>
                 <li>Publishes 10 ROS2 topics</li>
-                <li>RPLidar C1 /scan node</li>
+                <li>RPLidar A1M8 /scan node</li>
                 <li>robot_state_publisher</li>
                 <li>Systemd autostart</li>
                 <li>ROS2 Humble</li>
@@ -464,7 +464,7 @@
                 <tr><td>/tof/left</td><td>sensor_msgs/Range</td><td>serial_bridge</td><td>10 Hz</td></tr>
                 <tr><td>/tof/right</td><td>sensor_msgs/Range</td><td>serial_bridge</td><td>10 Hz</td></tr>
                 <tr><td>/tof/back</td><td>sensor_msgs/Range</td><td>serial_bridge</td><td>10 Hz</td></tr>
-                <tr><td>/scan</td><td>sensor_msgs/LaserScan</td><td>lidar_node (RPLidar C1)</td><td>5 Hz</td></tr>
+                <tr><td>/scan</td><td>sensor_msgs/LaserScan</td><td>lidar_node (RPLidar A1M8)</td><td>5 Hz</td></tr>
                 <tr><td>/joint_states</td><td>sensor_msgs/JointState</td><td>serial_bridge</td><td>40 Hz</td></tr>
                 <tr><td>/odometry/filtered</td><td>nav_msgs/Odometry</td><td>EKF node</td><td>30 Hz</td></tr>
                 <tr><td>/cmd_vel</td><td>geometry_msgs/Twist</td><td>Nav2 / teleop</td><td>—</td></tr>
@@ -501,7 +501,7 @@
                 <li>Motors: FIT0441 brushless DC</li>
                 <li>IMU: MPU6500 (WHO_AM_I=0x70)</li>
                 <li>ToF: 3× VL53L0X (Pololu init)</li>
-                <li>LiDAR: RPLidar C1</li>
+                <li>LiDAR: RPLidar A1M8</li>
                 <li>Battery: 3S Li-Ion (12.6V / 9.0V cutoff)</li>
               </ul>
             </div>
@@ -557,7 +557,7 @@
                 <li class="done"><span class="check-icon done">✓</span>RViz2 visualization</li>
                 <li class="done"><span class="check-icon done">✓</span>Systemd autostart</li>
                 <li class="done"><span class="check-icon done">✓</span>robot_localization EKF</li>
-                <li class="done"><span class="check-icon done">✓</span>RPLidar C1 integration</li>
+                <li class="done"><span class="check-icon done">✓</span>RPLidar A1M8 integration</li>
                 <li class="done"><span class="check-icon done">✓</span>SLAM Toolbox</li>
                 <li class="done"><span class="check-icon done">✓</span>Nav2 autonomous navigation</li>
                 <li class="done"><span class="check-icon done">✓</span>PID gain tuning</li>
